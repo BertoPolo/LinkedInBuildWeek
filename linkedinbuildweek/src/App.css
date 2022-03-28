@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+/* icons start */
+.bi-linkedin {
+  color: #1882d7;
+}
+/* incons end */
+
+/* navbar start */
+#profilePhoto {
+  width: 20px !important;
+}
+
+.divider {
+  border-right: 1px solid black;
+}
+
+#navbartrypremium {
+  color: #9b1e1e;
+  text-align: center;
+}
+/* navbar end */
+
+/* footer start */
+/* footer end */
