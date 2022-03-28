@@ -38,7 +38,7 @@
 }
 /* icons start */
 .bi-linkedin {
-  color: #1882d7;
+  color: #146ab1;
 }
 /* incons end */
 
@@ -58,55 +58,52 @@
 /* navbar end */
 
 /* footer start */
+.linkedinH5Icon {
+  color: #146ab1;
+  font-weight: bold;
+  margin-right: 10px;
+}
 /* footer end */
 
-.sideBarBox{
+.sideBarBox {
   border: solid 1px rgb(224, 220, 220);
   border-radius: 10px;
   height: 40vh;
   width: 25vh;
-  
-  ;
-
 }
 
-.profilePicSideBar{
+.profilePicSideBar {
   height: 50px;
   width: 50px;
   margin-left: 20px;
   margin-top: 5px;
   border-radius: 50px;
-  
-  
 }
 
-.sideBarButton{
-
+.sideBarButton {
   background-color: rgb(255, 255, 255);
   border: solid 1px rgb(82, 81, 81);
   border-radius: 18px;
   height: 30px;
   width: 90px;
-  color:rgb(82, 81, 81);
+  color: rgb(82, 81, 81);
   font-weight: 600;
 }
-.sideBarButton:hover{
+.sideBarButton:hover {
   background-color: rgb(236, 236, 236);
   border: solid 2px rgb(82, 81, 81);
 }
 
-.information{
+.information {
   color: rgb(82, 81, 81);
   font-weight: 200;
   font-size: smaller;
   margin-top: -15px;
 }
 
-.titleSideBar{
+.titleSideBar {
   margin-left: 20px;
   margin-top: 20px;
   font-weight: 600;
   font-size: medium;
-
 }
-
