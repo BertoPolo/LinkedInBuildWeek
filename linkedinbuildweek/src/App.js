@@ -4,7 +4,7 @@ import "./App.css"
 // import { BrowserRouter, Routes, Route } from "react-router-dom"
 import MyFooter from "./components/MyFooter"
 import MyNavbar from "./components/MyNavbar"
-import MyProfile from './components/MyProfile/MyProfile
+import MyProfile from './components/MyProfile/MyProfile'
 
 function App() {
   return (
