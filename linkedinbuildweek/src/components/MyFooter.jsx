@@ -17,7 +17,7 @@ const MyFooter = () => {
               <p>About </p>
               <p>Community Guidelines</p>
               <p>
-                Privacy & Terms <i class="bi bi-caret-down-fill"></i>
+                Privacy & Terms <i className="bi bi-caret-down-fill"></i>
               </p>
               <p>Sales Solutions</p>
               <p>Safety Center</p>

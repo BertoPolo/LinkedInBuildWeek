@@ -1,21 +1,21 @@
-import { fetchMyProfile } from "./fetchMyProfile";
-import { useEffect, useState } from "react";
-import { Image, Button, Jumbotron } from "react-bootstrap";
-import "./MyProfile.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import MyModal from "./MyModal";
+import { fetchMyProfile } from "./fetchMyProfile"
+import { useEffect, useState } from "react"
+import { Image, Button, Jumbotron } from "react-bootstrap"
+import "./MyProfile.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import MyModal from "./MyModal"
 
 const MyProfile = () => {
-  const [myProfile, setMyProfile] = useState([]);
-  const [show, setShow] = useState(false);
+  const [myProfile, setMyProfile] = useState([])
+  const [show, setShow] = useState(false)
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   useEffect(() => {
-    fetchMyProfile().then((res) => setMyProfile(res));
-  }, []);
-  console.log(myProfile);
+    fetchMyProfile().then((res) => setMyProfile(res))
+  }, [])
+  console.log(myProfile)
   return (
     <div>
       {
@@ -29,26 +29,14 @@ const MyProfile = () => {
             }}
           >
             <div>
-              <Image
-                alt="profileBgCover"
-                id="profileBgCover"
-                src="https://picsum.photos/200/300"
-              />
+              <Image alt="profileBgCover" id="profileBgCover" src="https://picsum.photos/200/300" />
             </div>
             <div id="profileInfosContainer">
               <div className="d-flex justify-content-between align-items-end">
-                <Image
-                  alt="profileUserImage"
-                  id="profileUserImage"
-                  src={myProfile.image}
-                />
+                <Image alt="profileUserImage" id="profileUserImage" src={myProfile.image} />
                 <div className="mr-3 modifyIcon">
-                  <i class="bi bi-pencil" onClick={handleShow}></i>
-                  {show ? (
-                    <MyModal show={show} handleClose={handleClose} />
-                  ) : (
-                    <></>
-                  )}
+                  <i className="bi bi-pencil" onClick={handleShow}></i>
+                  {show ? <MyModal show={show} handleClose={handleClose} /> : <></>}
                 </div>
               </div>
               <div>
@@ -84,17 +72,11 @@ const MyProfile = () => {
                       Open to work
                     </span>
                     <div className="modifyIcon">
-                      <i class="bi bi-pencil"></i>
+                      <i className="bi bi-pencil"></i>
                     </div>
                   </div>
-                  <span style={{ fontSize: 13 }}>
-                    Full Stack Engineer roles
-                  </span>
-                  <span
-                    className="font-weight-bold"
-                    id="seeMore"
-                    style={{ fontSize: 13, color: "blue" }}
-                  >
+                  <span style={{ fontSize: 13 }}>Full Stack Engineer roles</span>
+                  <span className="font-weight-bold" id="seeMore" style={{ fontSize: 13, color: "blue" }}>
                     See all details
                   </span>
                 </Jumbotron>
@@ -118,7 +100,7 @@ const MyProfile = () => {
         </>
       }
     </div>
-  );
-};
+  )
+}
 
-export default MyProfile;
+export default MyProfile
