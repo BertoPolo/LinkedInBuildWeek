@@ -36,3 +36,41 @@
     transform: rotate(360deg);
   }
 }
+
+.sideBarBox{
+  border: solid 1px rgb(224, 220, 220);
+  border-radius: 10px;
+  height: 40vh;
+  width: 25vh;
+  
+  ;
+
+}
+
+.profilePicSideBar{
+  height: 50px;
+  width: 50px;
+  margin: 50px;
+}
+
+.sideBarButton{
+
+  background-color: aliceblue;
+  border: solid 1px rgb(82, 81, 81);
+  border-radius: 18px;
+  height: 30px;
+  width: 90px;
+  color:rgb(82, 81, 81);
+  font-weight: 600;
+}
+
+.information{
+  color: rgb(82, 81, 81);
+  font-weight: 200;
+  font-size: smaller;
+  margin-top: -10px;
+}
+
+.titleSideBar{
+  margin-left: 20px;
+}
