@@ -13,11 +13,11 @@ function App() {
       <MyNavbar />
       {/* <Routes> */}
       <MyProfile />
-      {/* <Route path="" element={}> */}
       {/* </Routes> */}
+      {/* <Route path="" element={}> */}
+      <SideBar />
       <MyFooter />
       {/* </BrowserRouter> */}
-      <SideBar />
     </>
   )
 }
