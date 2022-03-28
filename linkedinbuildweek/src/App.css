@@ -40,9 +40,25 @@
 .bi-linkedin {
   color: #146ab1;
 }
+.bi-house-door-fill,
+.people-fill,
+.bi-briefcase-fill,
+.bi-chat-dots-fill,
+.bi-bell-fill {
+  font-size: 20px;
+}
+
+.bi-gear-fill,
+.bi-question-circle-fill {
+  margin-right: 0.5rem;
+}
 /* incons end */
 
 /* navbar start */
+#MyNavbar,
+footer {
+  font-size: 13px;
+}
 #profilePhoto {
   width: 20px !important;
 }
@@ -62,6 +78,13 @@
   color: #146ab1;
   font-weight: bold;
   margin-right: 10px;
+}
+#footerDropdown {
+  border: 1px solid black;
+  font-size: 13px;
+}
+.mngFooter {
+  color: #7d1eb483;
 }
 /* footer end */
 

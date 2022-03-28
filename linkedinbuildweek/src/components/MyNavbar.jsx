@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const MyNavbar = () => {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" id="MyNavbar">
       <Navbar.Brand href="#home">
         <i className="bi bi-linkedin"></i>
       </Navbar.Brand>
@@ -12,19 +12,24 @@ const MyNavbar = () => {
         <FormControl id="searchbar" type="text" placeholder="Search" className="mr-sm-2" />
       </Form>
       <div className="mr-4">
-        <i className="bi bi-house-door-fill ">Home</i>
+        <i className="bi bi-house-door-fill "></i>
+        <span>Home</span>
       </div>
       <div className="mr-4">
-        <i className="bi bi-people-fill ">My Network</i>
+        <i className="bi bi-people-fill "></i>
+        <span>My Network</span>
       </div>
       <div className="mr-4">
-        <i className="bi bi-briefcase-fill ">Jobs</i>
+        <i className="bi bi-briefcase-fill "></i>
+        <span>Jobs</span>
       </div>
       <div className="mr-4">
-        <i className="bi bi-chat-dots-fill ">Messaging</i>
+        <i className="bi bi-chat-dots-fill "></i>
+        <span>Messaging</span>
       </div>
       <div className="mr-4">
-        <i className="bi bi-bell-fill ">Notifications</i>
+        <i className="bi bi-bell-fill "></i>
+        <span>Notifications</span>
       </div>
 
       <div className="divider">
