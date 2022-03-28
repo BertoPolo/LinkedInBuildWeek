@@ -63,6 +63,9 @@
   font-weight: bold;
   margin-right: 10px;
 }
+#footerDropdown {
+  border: 1px solid black;
+}
 /* footer end */
 
 .sideBarBox {
