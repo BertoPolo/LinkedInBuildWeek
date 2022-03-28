@@ -7,7 +7,9 @@ const SideBar = () => {
       <div className="sideBarBox">
         <Section />
       </div>
-      <button className="showMoreButton">Show more</button>
+      <button onClick className="showMoreButton">
+        Show more
+      </button>
     </>
   );
 };
