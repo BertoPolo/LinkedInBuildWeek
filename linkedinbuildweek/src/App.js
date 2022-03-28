@@ -4,7 +4,7 @@ import SideBar from "./Components/SideBar"
 
 function App() {
   return <>
-  <SideBar/>
+<SideBar/>
     </>
 }
 
