@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
+import "./SideBar&SideBarSec.css";
 
 const Section = () => {
   const [users, setUsers] = useState([]);
@@ -28,17 +28,17 @@ const Section = () => {
 
   return (
     <>
+      <h5 className="titleSideBar">People you might know</h5>
       {users.slice(0, 6).map((user) => (
-        <div>
-          <h5 className="titleSideBar">People you might know</h5>
-          <div className="row">
+        <div key={user._id}>
+          <div className="row nameContainerSide">
             <div className="col-3">
               <Image className="profilePicSideBar" src={user.image} alt="" />
             </div>
             <div className="col-8">
               <p>{user.name}</p>
-              <p className="information">job</p>
-              <p className="information">Company</p>
+              <p className="information">{user.title}</p>
+              <p className="information">{user.area}</p>
               <button className="sideBarButton">Connect</button>
             </div>
           </div>
