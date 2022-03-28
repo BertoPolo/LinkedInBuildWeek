@@ -40,7 +40,7 @@
 .sideBarBox {
   border: solid 1px rgb(224, 220, 220);
   border-radius: 10px;
-  height: 450px;
+  height: 480px;
   width: 25vh;
   min-width: 259px;
   min-height: 367px;
@@ -90,16 +90,15 @@ p {
   margin-left: 5px;
 }
 
-.showMoreButton {
+#showMoreButton {
   width: 25vh;
   height: 35px;
   min-width: 259px;
   margin-left: 20px;
   transform: translateY(-50px);
-  
-  
-
   border: solid 1px rgb(224, 220, 220);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  background-color: #d1dcdf;
+  color: #626366;
 }
