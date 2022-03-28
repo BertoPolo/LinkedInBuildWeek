@@ -1,0 +1,70 @@
+
+.sideBarBox {
+    border: solid 1px rgb(224, 220, 220);
+    border-radius: 10px;
+    height: 480px;
+    width: 25vh;
+    min-width: 259px;
+    min-height: 367px;
+    margin: 20px;
+    overflow: hidden;
+    position: relative;
+    
+    
+  }
+  
+  .profilePicSideBar {
+    height: 50px;
+    width: 50px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border-radius: 50px;
+  }
+  
+  .sideBarButton {
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(82, 81, 81);
+    border-radius: 18px;
+    height: 30px;
+    width: 90px;
+    color: rgb(82, 81, 81);
+    font-weight: 600;
+    padding-bottom: 20px;
+  }
+  .sideBarButton:hover {
+    background-color: rgb(236, 236, 236);
+    border: solid 2px rgb(82, 81, 81);
+  }
+  
+  .information {
+    color: rgb(82, 81, 81);
+    font-weight: 200;
+    font-size: smaller;
+    margin-top: -15px;
+    margin-left: 5px;
+  }
+  
+  .titleSideBar {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: medium;
+  }
+  
+  p {
+    margin-left: 5px;
+  }
+  
+  #showMoreButton {
+    width: 25vh;
+    height: 35px;
+    min-width: 259px;
+    margin-left: 20px;
+    transform: translateY(-50px);
+    border: solid 1px rgb(224, 220, 220);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #d1dcdf;
+    color: #626366;
+  }
+  

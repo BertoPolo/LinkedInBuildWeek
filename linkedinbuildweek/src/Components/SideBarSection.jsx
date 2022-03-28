@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
-import "./SideBar_&_SideBarSec.css";
+import "./SideBar&SideBarSec.css";
 
 const Section = () => {
   const [users, setUsers] = useState([]);
