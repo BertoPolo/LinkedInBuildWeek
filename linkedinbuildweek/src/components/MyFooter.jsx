@@ -1,8 +1,9 @@
 import { Container, Row, Col, Dropdown } from "react-bootstrap"
-import "bootstrap-icons/font/bootstrap-icons.css"
+import { Link } from "react-router-dom"
+
 const MyFooter = () => {
   return (
-    <footer>
+    <footer className="text-muted">
       <Container>
         <Row>
           <h5 className="linkedinH5Icon">
@@ -34,33 +35,44 @@ const MyFooter = () => {
               <p>Small Business</p>
             </Col>
           </div>
+          <Col>
+            <Row>
+              <div>
+                <i className="bi bi-question-circle-fill"></i>
+              </div>
+              <div>
+                <b>Questions?</b>
+                <p>Visit our Help Center</p>
+              </div>
+            </Row>
 
-          <div className="d-">
-            <i className="bi bi-question-circle-fill"></i>
-            <b>Questions?</b>
-            <p>Visit our Help Center</p>
-          </div>
+            <Row>
+              <div>
+                <i className="bi bi-gear-fill d-block"></i>
+              </div>
+              <div>
+                <b className="mngFooter">Manage your account and privacy</b>
+                <p>Go to youir Settings</p>
+              </div>
+            </Row>
+          </Col>
 
-          <div>
-            <i className="bi bi-gear-fill"></i>
-            <b>Manage</b>
-            <p>Go to youir Settings</p>
-          </div>
+          <Col>
+            <div>
+              <p className="mb-0">Select Language</p>
+              <Dropdown>
+                <Dropdown.Toggle className="pr-5" id="footerDropdown" variant="transparent">
+                  English (English)
+                </Dropdown.Toggle>
 
-          <div>
-            <p>Select Language</p>
-            <Dropdown>
-              <Dropdown.Toggle id="footerDropdown" variant="transparent">
-                English (English)
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Italian</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Spanish</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">German</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </div>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="#/action-1">Italian</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">Spanish</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">German</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
+          </Col>
         </Row>
 
         <Row>
