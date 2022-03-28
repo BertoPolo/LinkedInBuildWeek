@@ -6,7 +6,7 @@ const MyFooter = () => {
       <Container>
         <Row>
           <p>
-            Linked<i class="bi bi-linkedin"></i>
+            Linked<i className="bi bi-linkedin"></i>
           </p>
         </Row>
       </Container>
