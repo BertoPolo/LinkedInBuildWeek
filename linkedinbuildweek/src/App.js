@@ -1,10 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
-import SideBar from "./components/SideBar"
+import SideBar from "./Components/SideBar"
 // import { BrowserRouter, Routes, Route } from "react-router-dom"
-import MyFooter from "./components/MyFooter"
-import MyNavbar from "./components/MyNavbar"
-import MyProfile from "./components/MyProfile/MyProfile"
+import MyFooter from "./Components/MyFooter"
+import MyNavbar from "./Components/MyNavbar"
+import MyProfile from "./Components/MyProfile/MyProfile"
 
 function App() {
   return (
@@ -16,8 +16,8 @@ function App() {
       {/* </Routes> */}
       {/* <Route path="" element={}> */}
       <SideBar />
-      <MyFooter />
       {/* </BrowserRouter> */}
+      <MyFooter />
     </>
   )
 }
