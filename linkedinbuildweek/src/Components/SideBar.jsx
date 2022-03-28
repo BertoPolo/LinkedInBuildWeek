@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Section from "./SideBarSection";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
+import "./SideBar_&_SideBarSec.css";
 
 const SideBar = () => {
   const [heightButton, setHeightButton] = useState("480px");
