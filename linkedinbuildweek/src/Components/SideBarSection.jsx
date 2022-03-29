@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
 import { Image } from "react-bootstrap";
 import "./SideBar&SideBarSec.css";
+import { Link } from "react-router-dom";
 
 const Section = () => {
   const [users, setUsers] = useState([]);
@@ -35,12 +36,14 @@ const Section = () => {
             <div className="col-3">
               <Image className="profilePicSideBar" src={user.image} alt="" />
             </div>
-            <div className="col-8">
-              <p>{user.name}</p>
-              <p className="information">{user.title}</p>
-              <p className="information">{user.area}</p>
-              <button className="sideBarButton">Connect</button>
-            </div>
+            <Link onClick={"window.location.reload()"} to={"/" + user._id}>
+              <div className="col-8">
+                <p>{user.name}</p>
+                <p className="information">{user.title}</p>
+                <p className="information">{user.area}</p>
+                <button className="sideBarButton">Connect</button>
+              </div>
+            </Link>
           </div>
         </div>
       ))}

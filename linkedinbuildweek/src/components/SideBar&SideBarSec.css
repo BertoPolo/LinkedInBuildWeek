@@ -1,6 +1,6 @@
 
 .sideBarBox {
-    border: solid 1px rgb(224, 220, 220);
+    border: solid 1px rgb(187, 184, 184);
     border-radius: 10px;
     height: 480px;
     width: 25vh;
@@ -9,6 +9,7 @@
     margin: 20px;
     overflow: hidden;
     position: relative;
+    background-color: white;
     
     
   }

@@ -1,24 +1,36 @@
-import { fetchMyProfile } from "./fetchMyProfile";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { Image, Button, Jumbotron } from "react-bootstrap";
-import "./MyProfile.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import MyModal from "./MyModal";
+import MyModal from "../MyProfile/MyModal";
 import SideBar from "../SideBar";
-import Experiences from "../Experiences"
 
-
-const MyProfile = () => {
-  const [myProfile, setMyProfile] = useState([]);
+const PeoplePage = () => {
+  const [people, setPeople] = useState({});
+  const params = useParams();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    fetchMyProfile().then((res) => setMyProfile(res));
+    getUsers(params._id).then((res) => setPeople(res));
   }, []);
-  console.log(myProfile);
+  async function getUsers() {
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/" + params.id,
+      {
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+        },
+      }
+    );
+    const peopleObj = await response.json();
+    return peopleObj;
+  }
+
   return (
     <div className="row">
       <div className="col-8">
@@ -44,7 +56,7 @@ const MyProfile = () => {
                   <Image
                     alt="profileUserImage"
                     id="profileUserImage"
-                    src={myProfile.image}
+                    src={people.image}
                   />
                   <div className="mr-3 modifyIcon">
                     <i className="bi bi-pencil" onClick={handleShow}></i>
@@ -57,11 +69,11 @@ const MyProfile = () => {
                 </div>
                 <div>
                   <h1>
-                    {myProfile.name} {myProfile.surname}
+                    {people.name} {people.surname}
                   </h1>
                   <div className="d-flex flex-column">
-                    <span>{myProfile.title}</span>
-                    <span>{myProfile.area}-Contact info</span>
+                    <span>{people.title}</span>
+                    <span>{people.area}-Contact info</span>
                   </div>
                   <div className="mt-2">1 connection</div>
                   <div className="mt-2">
@@ -122,19 +134,17 @@ const MyProfile = () => {
             >
               <div style={{ marginLeft: "3vh" }}>
                 <h1>About</h1>
-                <p>{myProfile.bio}</p>
+                <p>{people.bio}</p>
               </div>
             </div>
-          <Experiences />
-        </> 
+          </>
         }
       </div>
       <div className="col-4">
         <SideBar />
       </div>
-
     </div>
   );
 };
 
-export default MyProfile;
+export default PeoplePage;
