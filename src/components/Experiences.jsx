@@ -9,12 +9,32 @@ const Experiences = ({ id }) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const fetchExperiences = async (id) => {
-    console.log(id);
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/" +
+          id +
+          "/experiences",
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+        setExperiences(data);
+        console.log("experiences is", experiences);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   const { id: paramsId } = useParams();
   useEffect(() => {
     fetchExperiences(paramsId);
-  }, [paramsId]);
+  }, []);
   return (
     <>
       <div className="expiriencePiece">
@@ -37,7 +57,7 @@ const Experiences = ({ id }) => {
             )}
           </div>
 
-          {/* <div className="mt-3 d-flex">
+          <div className="mt-3 d-flex">
             <Image className="jobImg" src={experiences.image} />
             <div>
               <h6 className="my-0">{experiences.role}</h6>
@@ -47,7 +67,7 @@ const Experiences = ({ id }) => {
               </p>
               <p className="text-muted ml-0">{experiences.area}</p>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
     </>
