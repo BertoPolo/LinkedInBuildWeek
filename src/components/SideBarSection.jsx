@@ -24,7 +24,6 @@ const Section = () => {
     );
     const users = await response.json();
     setUsers(users);
-    console.log(users);
   }
 
   return (
