@@ -41,10 +41,10 @@ body {
   }
 }
 /* icons start */
-.bi-linkedin {
+nav .bi-linkedin {
   color: #146ab1;
 }
-.bi-house-door-fill,
+nav .bi-house-door-fill,
 .bi-people-fill,
 .bi-briefcase-fill,
 .bi-chat-dots-fill,
@@ -57,6 +57,12 @@ body {
 .bi-gear-fill,
 .bi-question-circle-fill {
   margin-right: 0.5rem;
+}
+
+.hoverIconBgGray.bi-plus-lg,
+.hoverIconBgGray.bi-pencil {
+  font-size: 21px;
+  padding: 10px;
 }
 /* incons end */
 
@@ -93,6 +99,35 @@ footer {
   color: #7d1eb483;
 }
 /* footer end */
+
+/* Expirience component start */
+.expiriencePiece {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  background-color: white;
+  font-size: 13px;
+}
+.jobImg {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background-position: 50%;
+  background-size: cover;
+  object-position: center;
+  object-fit: cover;
+}
+/* Expirience component end */
+
+/* Animations start*/
+.hoverIconBgGray:hover {
+  background-color: rgba(128, 128, 128, 0.363);
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+/* Animations end*/
 
 .sideBarBox {
   border: solid 1px rgb(224, 220, 220);
