@@ -15,7 +15,7 @@ const SideBar = () => {
       <Button
         onClick={() =>
           heightButton === "480px"
-            ? setHeightButton("800px")
+            ? setHeightButton("900px")
             : setHeightButton("480px")
         }
         id="showMoreButton"
