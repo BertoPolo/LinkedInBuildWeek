@@ -45,11 +45,13 @@ body {
   color: #146ab1;
 }
 .bi-house-door-fill,
-.people-fill,
+.bi-people-fill,
 .bi-briefcase-fill,
 .bi-chat-dots-fill,
-.bi-bell-fill {
-  font-size: 20px;
+.bi-bell-fill,
+.bi-grid-3x3-gap-fill {
+  font-size: 24px;
+  color: #6c757d;
 }
 
 .bi-gear-fill,
