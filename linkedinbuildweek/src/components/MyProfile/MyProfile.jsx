@@ -5,21 +5,41 @@ import "./MyProfile.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import MyModal from "./MyModal";
 import SideBar from "../SideBar";
-import Experiences from "../Experiences"
-
+import Experiences from "../Experiences";
+import { useParams } from "react-router-dom";
 
 const MyProfile = () => {
-  const [myProfile, setMyProfile] = useState([]);
+  const [myProfile, setMyProfile] = useState(null);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const { id } = useParams();
+  const fetchData = async (param) => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/" + param,
+        {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
+      if (response.ok) {
+        const data = await response.json();
+        setMyProfile(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    fetchMyProfile().then((res) => setMyProfile(res));
+    fetchData(id);
   }, []);
-  console.log(myProfile);
-  return (
+  console.log("inMyProfile", myProfile);
+  return myProfile ? (
     <div className="row">
       <div className="col-8">
         {
@@ -46,14 +66,21 @@ const MyProfile = () => {
                     id="profileUserImage"
                     src={myProfile.image}
                   />
-                  <div className="mr-3 modifyIcon">
-                    <i className="bi bi-pencil" onClick={handleShow}></i>
-                    {show ? (
-                      <MyModal show={show} handleClose={handleClose} />
-                    ) : (
-                      <></>
-                    )}
-                  </div>
+                  {id === "me" && (
+                    <div className="mr-3 modifyIcon">
+                      <i className="bi bi-pencil" onClick={handleShow}></i>
+                      {show ? (
+                        <MyModal
+                          show={show}
+                          handleClose={handleClose}
+                          fetchData={fetchData}
+                          myProfile={myProfile}
+                        />
+                      ) : (
+                        <></>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <div>
                   <h1>
@@ -125,15 +152,16 @@ const MyProfile = () => {
                 <p>{myProfile.bio}</p>
               </div>
             </div>
-          <Experiences />
-        </> 
+            {myProfile && <Experiences id={myProfile._id} />}
+          </>
         }
       </div>
       <div className="col-4">
         <SideBar />
       </div>
-
     </div>
+  ) : (
+    <div>Loading</div>
   );
 };
 

@@ -1,53 +1,56 @@
 import { useState } from "react";
-import { Form ,Modal,Button} from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap";
 
-const ExperienceModal=()=>{
-const[experience,setExperience]=useState({
-    role:"",
-    description:"",
-    company:"",
-    startDate:"",
-    endDate:"",
-    image:"",
-    area:"",
+const ExperienceModal = ({ show, handleClose }) => {
+  const [experience, setExperience] = useState({
+    role: "",
+    description: "",
+    company: "",
+    startDate: "",
+    endDate: "",
+    image: "",
+    area: "",
+  });
 
-})
+  const params = useParams();
 
-const getExperiences = async () => {
+  const getExperiences = async () => {
     try {
-      let response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/:${id}/experiences/`, {
-          method:"POST",
-          body:JSON.stringify(experience),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${params.id}/experiences/`,
+        {
+          method: "POST",
+          body: JSON.stringify(experience),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
       if (response.ok) {
-        let data = await response.json()
-        console.log("ïn me", data)
+        let data = await response.json();
+        console.log("ïn me", data);
         setExperience({
-            role:,
-            description:,
-            company:,
-            startDate:,
-            endDate:,
-            image:,
-            area:,
-        })
+          role: data.role,
+          description: data.description,
+          company: data.company,
+          startDate: data.startDate,
+          endDate: data.endDate,
+          image: data.image,
+          area: data.area,
+        });
       } else {
-        alert("PROBLEM")
+        alert("PROBLEM");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
-
-
-
-<Modal show={show} onHide={handleClose} animation={false}>
+  return (
+    <Modal show={show} onHide={handleClose} animation={false}>
       <Modal.Header closeButton>
         <Modal.Title>Edit intro</Modal.Title>
       </Modal.Header>
@@ -57,76 +60,91 @@ const getExperiences = async () => {
             <Col>
               <div>
                 <Form.Group>
-                  <Form.Label>First Name</Form.Label>
+                  <Form.Label>Role</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="First Name"
-                    value={profile.name}
+                    value={experience.role}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        name: e.target.value,
+                      setExperience({
+                        ...experience,
+                        role: e.target.value,
                       })
                     }
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Surname</Form.Label>
+                  <Form.Label>description</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="surname"
-                    value={profile.surname}
+                    value={experience.description}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        surname: e.target.value,
+                      setExperience({
+                        ...experience,
+                        description: e.target.value,
                       })
                     }
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>company</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="email"
-                    value={profile.email}
+                    value={experience.company}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        email: e.target.value,
+                      setExperience({
+                        ...experience,
+                        company: e.target.value,
                       })
                     }
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Write something about you</Form.Label>
+                  <Form.Label>Start date</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="date"
                     placeholder="bio"
-                    value={profile.bio}
+                    value={experience.startDate}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        bio: e.target.value,
+                      setExperience({
+                        ...experience,
+                        startDate: e.target.value,
                       })
                     }
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Title</Form.Label>
+                  <Form.Label>End date</Form.Label>
                   <Form.Control
-                    type="text"
+                    type="date"
                     placeholder="your job"
-                    value={profile.title}
+                    value={experience.endDate}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        title: e.target.value,
+                      setExperience({
+                        ...experience,
+                        endDate: e.target.value,
+                      })
+                    }
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Image</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="img url..."
+                    value={experience.image}
+                    required
+                    onChange={(e) =>
+                      setExperience({
+                        ...experience,
+                        image: e.target.value,
                       })
                     }
                   />
@@ -136,11 +154,11 @@ const getExperiences = async () => {
                   <Form.Control
                     type="text"
                     placeholder="Where did you work"
-                    value={profile.area}
+                    value={experience.area}
                     required
                     onChange={(e) =>
-                      setProfile({
-                        ...profile,
+                      setExperience({
+                        ...experience,
                         area: e.target.value,
                       })
                     }
@@ -155,11 +173,11 @@ const getExperiences = async () => {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={editProfile}>
+        <Button variant="primary" onClick={getExperiences}>
           Save Changes
         </Button>
       </Modal.Footer>
     </Modal>
-  )
-}
-export ExperienceModal
+  );
+};
+export default ExperienceModal;

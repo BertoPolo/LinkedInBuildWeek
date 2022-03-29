@@ -1,34 +1,57 @@
-import { Image } from "react-bootstrap"
-// import { Link } from "react-router-dom"
+import { Image } from "react-bootstrap";
+import { useState, useEffect } from "react";
+import ExperienceModal from "./ExperienceModal";
+import { useParams } from "react-router-dom";
 
-const Experiences = (data) => {
+const Experiences = ({ id }) => {
+  const [show, setShow] = useState(false);
+  const [experiences, setExperiences] = useState([]);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const fetchExperiences = async (id) => {
+    console.log(id);
+  };
+  const { id: paramsId } = useParams();
+  useEffect(() => {
+    fetchExperiences(paramsId);
+  }, [paramsId]);
   return (
     <>
       <div className="expiriencePiece">
         <div style={{ marginLeft: "3vh" }}>
           <div className="d-flex justify-content-between">
             <h4>Experience</h4>
-            <div className="">
-              <i className="bi bi-plus-lg hoverIconBgGray mx-2"></i>
-              <i className="bi bi-pencil hoverIconBgGray mx-2 mr-3"></i>
-            </div>
+            {paramsId === "me" && (
+              <div className="">
+                <i
+                  className="bi bi-plus-lg hoverIconBgGray mx-2"
+                  onClick={handleShow}
+                ></i>
+                {show ? (
+                  <ExperienceModal show={show} handleClose={handleClose} />
+                ) : (
+                  <></>
+                )}
+                <i className="bi bi-pencil hoverIconBgGray mx-2 mr-3"></i>
+              </div>
+            )}
           </div>
 
-          <div className="mt-3 d-flex">
-            <Image className="jobImg" src={data.image} />
+          {/* <div className="mt-3 d-flex">
+            <Image className="jobImg" src={experiences.image} />
             <div>
-              <h6 className="my-0">{data.role}</h6>
-              <p className="my-0 ml-0">{data.company}</p>
+              <h6 className="my-0">{experiences.role}</h6>
+              <p className="my-0 ml-0">{experiences.company}</p>
               <p className="text-muted ml-0">
-                {data.startDate} · {data.endDate}
+                {experiences.startDate} · {experiences.endDate}
               </p>
-              <p className="text-muted ml-0">{data.area}</p>
+              <p className="text-muted ml-0">{experiences.area}</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Experiences
+export default Experiences;

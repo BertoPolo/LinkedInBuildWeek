@@ -1,69 +1,35 @@
-import { Modal, Button, Container, Row, Col, Form } from "react-bootstrap"
-import { useState, useEffect } from "react"
+import { Modal, Button, Container, Row, Col, Form } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
-const MyModal = ({ show, handleClose }) => {
-  const [profile, setProfile] = useState({
-    name: "",
-    surname: "",
-    email: "",
-    bio: "",
-    title: "",
-    area: "",
-  })
+const MyModal = ({ show, handleClose, myProfile, fetchData }) => {
+  const [profile, setProfile] = useState(myProfile);
 
-  useEffect(() => {
-    fetchInfos()
-  }, [])
-
-  const fetchInfos = async () => {
-    try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
-      if (response.ok) {
-        let data = await response.json()
-        console.log("ïn me", data)
-        setProfile({
-          name: data.name,
-          surname: data.surname,
-          email: data.email,
-          bio: data.bio,
-          title: data.title,
-          area: data.area,
-        })
-      } else {
-        alert("PROBLEM")
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  console.log({ myProfile });
 
   const editProfile = async () => {
     try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/profile", {
-        method: "PUT",
-        body: JSON.stringify(profile),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile",
+        {
+          method: "PUT",
+          body: JSON.stringify(profile),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
       if (response.ok) {
-        await fetchInfos()
-        handleClose()
+        await fetchData(myProfile._id);
+        handleClose();
       } else {
-        console.log("error")
+        console.log("error");
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
     <Modal show={show} onHide={handleClose} animation={false}>
@@ -179,7 +145,7 @@ const MyModal = ({ show, handleClose }) => {
         </Button>
       </Modal.Footer>
     </Modal>
-  )
-}
+  );
+};
 
-export default MyModal
+export default MyModal;
