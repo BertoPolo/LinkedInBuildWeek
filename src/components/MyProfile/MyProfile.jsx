@@ -29,6 +29,7 @@ const MyProfile = () => {
       if (response.ok) {
         const data = await response.json();
         setMyProfile(data);
+        console.log("myProfile is ", myProfile);
       }
     } catch (error) {
       console.log(error);
@@ -38,7 +39,6 @@ const MyProfile = () => {
   useEffect(() => {
     fetchData(id);
   }, []);
-  console.log("inMyProfile", myProfile);
   return myProfile ? (
     <div className="row">
       <div className="col-8">
