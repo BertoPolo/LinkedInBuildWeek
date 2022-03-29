@@ -5,6 +5,8 @@ import "./MyProfile.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import MyModal from "./MyModal";
 import SideBar from "../SideBar";
+import Experiences from "../Experiences"
+
 
 const MyProfile = () => {
   const [myProfile, setMyProfile] = useState([]);
@@ -123,12 +125,14 @@ const MyProfile = () => {
                 <p>{myProfile.bio}</p>
               </div>
             </div>
-          </>
+          <Experiences />
+        </> 
         }
       </div>
       <div className="col-4">
         <SideBar />
       </div>
+
     </div>
   );
 };

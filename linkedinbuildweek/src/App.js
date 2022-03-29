@@ -2,7 +2,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-icons/font/bootstrap-icons.css"
 import "./App.css"
 import { Container } from "react-bootstrap"
-// import { BrowserRouter, Routes, Route } from "react-router-dom"
 import MyFooter from "./components/MyFooter"
 import MyNavbar from "./components/MyNavbar"
 import MyProfile from "./components/MyProfile/MyProfile"
@@ -13,8 +12,6 @@ import SideBar from "./components/SideBar"
 function App() {
   return (
     <>
-
-      {/* <BrowserRouter> */}
       <BrowserRouter>
       <MyNavbar />
       <Container>
@@ -22,9 +19,7 @@ function App() {
         <Route path="/"  element={<MyProfile />}/>
         <Route path="/:id" element={<PeoplePage/>}/>
         
-        {/* </Routes> */}
-        {/* <Route path="" element={}> */}
-        {/* </BrowserRouter> */}
+       
       </Routes>
       </Container>
       <MyFooter />

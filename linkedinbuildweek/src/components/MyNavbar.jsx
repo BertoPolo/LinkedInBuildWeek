@@ -13,31 +13,31 @@ const MyNavbar = () => {
       </Form>
       <div className="mr-4 ">
         <i className="bi bi-house-door-fill d-block"></i>
-        <span>Home</span>
-        {/* <Link to="/">Home</Link> */}
+        <span className="text-muted">Home</span>
+        {/* <Link className="text-muted" to="/">Home</Link> */}
       </div>
       <div className="mr-4">
         <i className="bi bi-people-fill d-block "></i>
-        <span>My Network</span>
-        {/* <Link to="/">My Network</Link> */}
+        <span className="text-muted">My Network</span>
+        {/* <Link className="text-muted" to="/">My Network</Link> */}
       </div>
       <div className="mr-4">
         <i className="bi bi-briefcase-fill d-block "></i>
-        <span>Jobs</span>
-        {/* <Link to="/">Jobs</Link> */}
+        <span className="text-muted">Jobs</span>
+        {/* <Link className="text-muted" to="/">Jobs</Link> */}
       </div>
       <div className="mr-4">
         <i className="bi bi-chat-dots-fill d-block"></i>
-        <span>Messaging</span>
-        {/* <Link to="/">Messaging</Link> */}
+        <span className="text-muted">Messaging</span>
+        {/* <Link className="text-muted" to="/">Messaging</Link> */}
       </div>
       <div className="mr-4">
         <i className="bi bi-bell-fill d-block"></i>
-        <span>Notifications</span>
-        {/* <Link to="/">Notifications</Link> */}
+        <span className="text-muted">Notifications</span>
+        {/* <Link className="text-muted" to="/">Notifications</Link> */}
       </div>
 
-      <div className="divider">
+      <div className="divider text-muted">
         <Image
           id="profilePhoto"
           roundedCircle
@@ -48,10 +48,10 @@ const MyNavbar = () => {
         </span>
       </div>
 
-      <div>
+      <div className="text-muted">
         <i className="bi bi-grid-3x3-gap-fill d-block"></i>
         <span> Work</span>
-        <i className="bi bi-caret-down-fill"></i>
+        <i className="bi bi-caret-down-fill "></i>
       </div>
 
       <p id="navbartrypremium">

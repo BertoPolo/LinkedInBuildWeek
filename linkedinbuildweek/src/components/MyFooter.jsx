@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const MyFooter = () => {
   return (
-    <footer className="text-muted">
+    <footer className="text-muted mt-3">
       <Container>
         <Row>
           <h5 className="linkedinH5Icon">
