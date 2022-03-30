@@ -65,13 +65,6 @@ nav .bi-house-door-fill,
   padding: 10px;
 }
 
-.pointer > .bi-image,
-.bi-play-btn-fill,
-.bi-calendar-date,
-.bi-file-ruled {
-  font-size: 23px;
-}
-
 /* incons end */
 
 /* navbar start */
@@ -138,28 +131,6 @@ footer {
   cursor: pointer;
 }
 /* Animations end*/
-
-/* CreatePost Component start */
-#profilePhotoToPost {
-  border-radius: 50rem;
-  width: 10%;
-  max-height: 55px;
-
-  /* height: 10%; */
-  margin-left: 1%;
-}
-#postInput {
-  width: 85%;
-  max-height: 55px;
-  margin-right: 1%;
-  margin-left: 1%;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-/* CreatePost Component end */
 
 .sideBarBox {
   border: solid 1px rgb(224, 220, 220);
