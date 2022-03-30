@@ -3,10 +3,10 @@ import { useState } from "react"
 const Posts = () => {
   const GetPosts = async () => {
     const [post, setPost] = useState({})
+    const [id, setId] = useState("")
 
     try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-        body: JSON.stringify(post),
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/posts/${id && +id}`, {
         headers: {
           Authorization:
             "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
