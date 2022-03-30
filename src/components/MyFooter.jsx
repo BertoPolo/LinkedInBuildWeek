@@ -65,7 +65,7 @@ const MyFooter = () => {
                   English (English)
                 </Dropdown.Toggle>
 
-                <Dropdown.Menu>
+                <Dropdown.Menu className="bg-white">
                   <Dropdown.Item href="#/action-1">Italian</Dropdown.Item>
                   <Dropdown.Item href="#/action-2">Spanish</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">German</Dropdown.Item>
