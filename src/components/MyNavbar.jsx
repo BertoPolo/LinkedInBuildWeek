@@ -11,6 +11,8 @@ const MyNavbar = () => {
         <i className="bi bi-search"></i>
         <FormControl id="searchbar" type="text" placeholder="Search" className="mr-sm-2" />
       </Form>
+
+      {/* <div className="d-inline-block"> */}
       <div className="mr-4 ">
         <i className="bi bi-house-door-fill d-block"></i>
         <span className="text-muted">Home</span>
@@ -58,6 +60,7 @@ const MyNavbar = () => {
         Try Premium for <br />
         free
       </p>
+      {/* </div> */}
     </Navbar>
   )
 }

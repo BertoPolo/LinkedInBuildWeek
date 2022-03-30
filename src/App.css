@@ -64,6 +64,14 @@ nav .bi-house-door-fill,
   font-size: 21px;
   padding: 10px;
 }
+
+.pointer > .bi-image,
+.bi-play-btn-fill,
+.bi-calendar-date,
+.bi-file-ruled {
+  font-size: 23px;
+}
+
 /* incons end */
 
 /* navbar start */
@@ -73,6 +81,7 @@ footer {
 }
 #profilePhoto {
   width: 20px !important;
+  margin-right: 0.5rem;
 }
 
 .divider {
@@ -94,6 +103,7 @@ footer {
 #footerDropdown {
   border: 1px solid black;
   font-size: 13px;
+  background: white;
 }
 .mngFooter {
   color: #7d1eb483;
@@ -101,7 +111,7 @@ footer {
 /* footer end */
 
 /* Expirience component start */
-.expiriencePiece {
+.componentPiece {
   margin-top: 1rem;
   padding-top: 1rem;
   border: 1px solid gray;
@@ -128,6 +138,28 @@ footer {
   cursor: pointer;
 }
 /* Animations end*/
+
+/* CreatePost Component start */
+#profilePhotoToPost {
+  border-radius: 50rem;
+  width: 10%;
+  max-height: 55px;
+
+  /* height: 10%; */
+  margin-left: 1%;
+}
+#postInput {
+  width: 85%;
+  max-height: 55px;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* CreatePost Component end */
 
 .sideBarBox {
   border: solid 1px rgb(224, 220, 220);
