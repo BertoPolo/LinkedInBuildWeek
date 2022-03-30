@@ -29,7 +29,6 @@ const MyProfile = () => {
       if (response.ok) {
         const data = await response.json();
         setMyProfile(data);
-        console.log("myProfile is ", myProfile);
       }
     } catch (error) {
       console.log(error);
