@@ -1,17 +1,32 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap";
 
-const ExperienceModal = ({ show, handleClose, myExperience }) => {
-  const [experience, setExperience] = useState(myExperience);
-
-  const params = useParams();
-  const me = params.id;
-
+const ExperienceModal = ({
+  show,
+  handleClose,
+  userId,
+  fetchExperiences,
+  ...rest
+}) => {
+  const [experience, setExperience] = useState(
+    rest.experience
+      ? rest.experience
+      : {
+          role: "",
+          description: "",
+          startDate: new Date(),
+          endDate: new Date(),
+          company: "",
+          area: "",
+          image: "",
+        }
+  );
+  console.log({ fetchExperiences });
   const submitExperiences = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${me}/experiences/`,
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/`,
         {
           method: "POST",
           body: JSON.stringify(experience),
@@ -23,6 +38,7 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
         }
       );
       if (response.ok) {
+        await fetchExperiences(userId);
         handleClose();
       } else {
         alert("PROBLEM");
@@ -31,12 +47,11 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
       console.log(error);
     }
   };
-  let expId = myExperience._id;
-  console.log(expId);
+
   const modifyExperience = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${me}/experiences/${expId}`,
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${rest.experience._id}`,
         {
           method: "PUT",
           body: JSON.stringify(experience),
@@ -48,6 +63,32 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
         }
       );
       if (response.ok) {
+        await fetchExperiences(userId);
+        handleClose();
+      } else {
+        alert("PROBLEM with the");
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const deleteExperience = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${rest.experience._id}`,
+        {
+          method: "DELETE",
+          body: JSON.stringify(experience),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
+      if (response.ok) {
+        await fetchExperiences(userId);
         handleClose();
       } else {
         alert("PROBLEM with the");
@@ -61,13 +102,13 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
     <>
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Edit intro</Modal.Title>
+          <Modal.Title>{rest.experience ? "Edit" : "Create"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Container>
             <Row>
               <Col>
-                <div onSubmit={modifyExperience}>
+                <div>
                   <Form.Group>
                     <Form.Label>Role</Form.Label>
                     <Form.Control
@@ -180,9 +221,20 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={submitExperiences}>
-            Save Changes
-          </Button>
+          {rest.experience ? (
+            <>
+              <Button variant="primary" onClick={modifyExperience}>
+                Update
+              </Button>
+              <Button variant="danger" onClick={deleteExperience}>
+                Delete
+              </Button>
+            </>
+          ) : (
+            <Button variant="primary" onClick={submitExperiences}>
+              Save Changes
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>
