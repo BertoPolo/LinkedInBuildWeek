@@ -1,27 +1,31 @@
-.mainBox {
+.mainBox44 {
   display: flex;
   
 }
-#box{
+#box44{
     height: 360px;
+    width: 576px;
+    background-color: white;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 5px;
 }
 
-.createPost {
+.createPost44 {
   margin-left: 20px;  
   margin-top: 20px;
   font-size: 22px;
 
 }
-#break {
+#break44 {
   width: 100%;
 }
-#mainContainer {
+#mainContainer44 {
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.firstContainer {
+.firstContainer44 {
   margin-top: 10px;
   height: 60px;
   display: flex;
@@ -29,14 +33,14 @@
   font-size: 13px;
 }
 
-#profilePic2 {
+#profilePic244 {
   height: 48px;
   width: 48px;
   border: 3px solid red;
   border-radius: 50px;
   margin-left: 18px;
 }
-.buttonPrivacy{
+.buttonPrivacy44{
     height: 20px;
     width: 100px;
     border-radius: 50px;
@@ -45,7 +49,7 @@
     align-items: center;
     justify-content: center;
 }
-.buttonPrivacy2{
+.buttonPrivacy244{
     height: 20px;
     width: 100px;
     border-radius: 50px;
@@ -57,15 +61,15 @@
     background-color: white;
 }
 
-#nameFont{
+#nameFont44{
     font-size: 15px;
     font-weight: 600;
 }
-.nameFont{
+.nameFont44{
     font-size: 15px;
     font-weight: 600;
 }
-.commentSection{
+.commentSection44{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,16 +79,16 @@
     height: 120px;
     width: 525px;
 }
-.addHas{
+.addHas44{
     color: blue;
     background-color: white;
     border: none;
 }
-.addHas:hover{
+.addHas44:hover{
     background-color: rgba(233, 252, 252, 0.808);
 }
 
-.bottomContainer{
+.bottomContainer44{
     display: flex;
     justify-content: flex-start;
     justify-content: space-evenly;
@@ -93,11 +97,11 @@
     margin-top: 30px;
     width: 100%;
 }
-.vl{
+.vl44{
     border-left: 1px solid rgb(194, 194, 194);
     height: 40px;
 }
-.lastButton{
+.lastButton44{
     border: none;
     background-color: blue;
     color: white;
@@ -107,12 +111,15 @@
     margin-right: 15px;
     height: 35px;
 }
-.lastButton::before{
+.lastButton44::before{
     background-color: grey;
 }
-#inputBox{
+#inputBox44{
     height: 70%;
     width: 100%;
     border: none;
 
+}
+.buttonSrc{
+    background-color: white;
 }
