@@ -1,11 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row } from "react-bootstrap";
 import "./Feed-Navigation.css";
-import startPost from "./startPost";
 
 const FeedNavigation = () => {
-  const [isShowing, toggle] = startPost();
-
   return (
     <>
       <Container className="feedBox">
@@ -18,7 +15,6 @@ const FeedNavigation = () => {
               className="searchBar"
               type="text"
               placeholder="   Start a post"
-              onClick={toggle}
             >
               <p id="placeholderS">Start a post</p>
             </button>
