@@ -1,24 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap";
 
-const ExperienceModal = ({ show, handleClose }) => {
-  const [experience, setExperience] = useState({
-    role: "",
-    description: "",
-    company: "",
-    startDate: "",
-    endDate: "",
-    image: "",
-    area: "",
-  });
+const ExperienceModal = ({ show, handleClose, myExperience }) => {
+  const [experience, setExperience] = useState(myExperience);
 
   const params = useParams();
+  const me = params.id;
 
-  const getExperiences = async () => {
+  const submitExperiences = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/profile/${params.id}/experiences/`,
+        `https://striveschool-api.herokuapp.com/api/profile/${me}/experiences/`,
         {
           method: "POST",
           body: JSON.stringify(experience),
@@ -30,17 +23,7 @@ const ExperienceModal = ({ show, handleClose }) => {
         }
       );
       if (response.ok) {
-        let data = await response.json();
-        console.log("ïn me", data);
-        setExperience({
-          role: data.role,
-          description: data.description,
-          company: data.company,
-          startDate: data.startDate,
-          endDate: data.endDate,
-          image: data.image,
-          area: data.area,
-        });
+        handleClose();
       } else {
         alert("PROBLEM");
       }
@@ -48,6 +31,31 @@ const ExperienceModal = ({ show, handleClose }) => {
       console.log(error);
     }
   };
+  console.log(experience.id);
+  const modifyExperience = async () => {
+    try {
+      let response = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${me}/experiences/`,
+        {
+          method: "PUT",
+          body: JSON.stringify(experience),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      );
+      if (response.ok) {
+        handleClose();
+      } else {
+        alert("PROBLEM");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  console.log(myExperience._id);
 
   return (
     <Modal show={show} onHide={handleClose} animation={false}>
@@ -58,7 +66,7 @@ const ExperienceModal = ({ show, handleClose }) => {
         <Container>
           <Row>
             <Col>
-              <div>
+              <div onSubmit={submitExperiences}>
                 <Form.Group>
                   <Form.Label>Role</Form.Label>
                   <Form.Control
@@ -78,7 +86,7 @@ const ExperienceModal = ({ show, handleClose }) => {
                   <Form.Label>description</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="surname"
+                    placeholder="description"
                     value={experience.description}
                     required
                     onChange={(e) =>
@@ -93,7 +101,7 @@ const ExperienceModal = ({ show, handleClose }) => {
                   <Form.Label>company</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="email"
+                    placeholder="company"
                     value={experience.company}
                     required
                     onChange={(e) =>
@@ -108,7 +116,6 @@ const ExperienceModal = ({ show, handleClose }) => {
                   <Form.Label>Start date</Form.Label>
                   <Form.Control
                     type="date"
-                    placeholder="bio"
                     value={experience.startDate}
                     required
                     onChange={(e) =>
@@ -123,7 +130,6 @@ const ExperienceModal = ({ show, handleClose }) => {
                   <Form.Label>End date</Form.Label>
                   <Form.Control
                     type="date"
-                    placeholder="your job"
                     value={experience.endDate}
                     required
                     onChange={(e) =>
@@ -173,7 +179,7 @@ const ExperienceModal = ({ show, handleClose }) => {
         <Button variant="secondary" onClick={handleClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={getExperiences}>
+        <Button variant="primary" onClick={submitExperiences}>
           Save Changes
         </Button>
       </Modal.Footer>
