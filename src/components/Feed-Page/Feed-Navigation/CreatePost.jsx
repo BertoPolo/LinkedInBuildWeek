@@ -7,7 +7,7 @@ const CreatePost = () => {
   const [post, setPost] = useState({})
   const [openClose, setOpenClose] = useState(false)
 
-  const PostingFunction = async () => {
+  const PostingFunction = async (e) => {
     try {
       const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
         method: "POST",
@@ -52,7 +52,7 @@ const CreatePost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-card-image"
+                className="bi bi-card-image"
                 viewBox="0 0 16 16"
                 style={{ color: "rgb(112, 181, 249)", margin: "5px" }}
               >
@@ -67,7 +67,7 @@ const CreatePost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-play-btn-fill"
+                className="bi bi-play-btn-fill"
                 viewBox="0 0 16 16"
                 style={{ color: "rgb(127, 193, 94)", margin: "5px" }}
               >
@@ -81,7 +81,7 @@ const CreatePost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-calendar-date"
+                className="bi bi-calendar-date"
                 viewBox="0 0 16 16"
                 style={{ color: "rgb(231, 163, 62)", margin: "5px" }}
               >
@@ -96,7 +96,7 @@ const CreatePost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-newspaper"
+                className="bi bi-newspaper"
                 viewBox="0 0 16 16"
                 style={{ color: "rgb(252, 146,149)", margin: "5px" }}
               >
@@ -117,7 +117,7 @@ const CreatePost = () => {
           </Modal.Header>
 
           <Modal.Body>
-            <p>Modal body text goes here.</p>
+            <input type="text" onChange={(e) => setPost(e.target.value)} />
           </Modal.Body>
 
           <Modal.Footer>
