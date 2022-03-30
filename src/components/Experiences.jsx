@@ -1,15 +1,13 @@
-import { Image } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import ExperienceModal from "./ExperienceModal";
+import SingleExperience from "./SingleExperience";
 
 const Experiences = ({ id }) => {
-  const [show, setShow] = useState(false);
-  const [showModify, setShowModify] = useState(false);
   const [experiences, setExperiences] = useState([]);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleCloseModify = () => setShowModify(false);
-  const handleShowModify = () => setShowModify(true);
+
   const fetchExperiences = async (id) => {
     try {
       const response = await fetch(
@@ -37,7 +35,14 @@ const Experiences = ({ id }) => {
   return (
     experiences && (
       <>
-        <div className="expiriencePiece">
+        <div
+          className="mt-3"
+          style={{
+            backgroundColor: "white",
+            border: "1px solid gray",
+            borderRadius: "1rem",
+          }}
+        >
           <div style={{ marginLeft: "3vh" }}>
             <div className="d-flex justify-content-between">
               <h4>Experience</h4>
@@ -47,45 +52,22 @@ const Experiences = ({ id }) => {
                     className="bi bi-plus-lg hoverIconBgGray mx-2"
                     onClick={handleShow}
                   ></i>
-                  {show ? (
-                    <ExperienceModal
-                      myExperience={experiences}
-                      show={show}
-                      handleClose={handleClose}
-                    />
-                  ) : (
-                    <></>
-                  )}
+
+                  <ExperienceModal
+                    userId={id}
+                    show={show}
+                    handleClose={handleClose}
+                    fetchExperiences={fetchExperiences}
+                  />
                 </div>
               )}
             </div>
             {experiences.map((experience) => (
-              <div key={experience._id} className="mt-3 d-flex">
-                <i
-                  onClick={handleShowModify}
-                  className="bi bi-pencil hoverIconBgGray mx-2 "
-                >
-                  {showModify ? (
-                    <ExperienceModal
-                      myExperience={experiences}
-                      show={showModify}
-                      handleClose={handleCloseModify}
-                    />
-                  ) : (
-                    <></>
-                  )}
-                </i>
-                <Image className="jobImg" src={experience.image} />
-                <div>
-                  <h6 className="my-0">{experience.role}</h6>
-                  <></>
-                  <p className="my-0 ml-0">{experience.company}</p>
-                  <p className="text-muted ml-0">
-                    {experience.startDate} · {experience.endDate}
-                  </p>
-                  <p className="text-muted ml-0">{experience.area}</p>
-                </div>
-              </div>
+              <SingleExperience
+                id={id}
+                experience={experience}
+                fetchExperiences={fetchExperiences}
+              />
             ))}
           </div>
         </div>
