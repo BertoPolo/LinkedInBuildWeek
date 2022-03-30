@@ -51,8 +51,8 @@ const ExperienceModal = ({ show, handleClose, myExperience }) => {
       } else {
         alert("PROBLEM");
       }
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      console.log(e);
     }
   };
   console.log(myExperience._id);
