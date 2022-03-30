@@ -64,6 +64,7 @@ nav .bi-house-door-fill,
   font-size: 21px;
   padding: 10px;
 }
+
 /* incons end */
 
 /* navbar start */
@@ -73,6 +74,7 @@ footer {
 }
 #profilePhoto {
   width: 20px !important;
+  margin-right: 0.5rem;
 }
 
 .divider {
@@ -94,6 +96,7 @@ footer {
 #footerDropdown {
   border: 1px solid black;
   font-size: 13px;
+  background: white;
 }
 .mngFooter {
   color: #7d1eb483;
@@ -101,7 +104,7 @@ footer {
 /* footer end */
 
 /* Expirience component start */
-.expiriencePiece {
+.componentPiece {
   margin-top: 1rem;
   padding-top: 1rem;
   border: 1px solid gray;
