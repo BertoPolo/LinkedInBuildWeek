@@ -1,8 +1,31 @@
 import { Image } from "react-bootstrap"
-// import { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 // import { useParams } from "react-router-dom"
 
 const CreatePost = () => {
+  const [post, setPost] = useState({})
+
+  const posting = () => {
+    try {
+      const response = fetch("https://striveschool-api.herokuapp.com/api/posts/", {
+        method: "POST",
+        body: JSON.stringify(post),
+        headers: {
+          "Content-Type": "Application/json",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+        },
+      })
+
+      if (response.ok) {
+        alert("posted")
+      } else {
+        alert("we have a problem,bro")
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
   return (
     <>
       <div className="componentPiece">
