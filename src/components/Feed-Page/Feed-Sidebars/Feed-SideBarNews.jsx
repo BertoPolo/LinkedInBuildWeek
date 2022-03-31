@@ -55,7 +55,12 @@ const NewsBar = () => {
           <span className="spanul">More</span>
         </ul>
         <img src="" alt="" />
-        <span>Linkedin Corporation 2022</span>
+        <span>
+          <h6 className="linkedinH5Icon">
+            Linked<i className="bi bi-linkedin"></i>
+          </h6>
+          Corporation 2022
+        </span>
       </div>
     </>
   );

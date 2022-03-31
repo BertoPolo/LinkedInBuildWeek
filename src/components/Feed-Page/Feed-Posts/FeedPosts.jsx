@@ -13,23 +13,23 @@ const FeedPost = () => {
           <option value="mango">Recent</option>
         </select>
       </div>
-      <Container className="mainBox">
-        <div id="mainContainer" className="row">
-          <div className="firstContainer col-2">
-            <img id="profilePic" src="" alt="" />
+      <Container className="mainBox66">
+        <div id="mainContainer66" className="row">
+          <div className="firstContainer66 col-2">
+            <img id="profilePic66" src="" alt="" />
           </div>
-          <div className="firstContainer col-10">
+          <div className="firstContainer66 col-10">
             <span className="nameFont">NAME</span>
             <span>TITLE</span>
             <span>Time</span>
           </div>
         </div>
 
-        <img id="mainImage" src="" alt="" />
+        <img id="mainImage66" src="" alt="" />
 
         <div>
-          <div className="row containerSvg">
-            <button className="buttonSrc">
+          <div className="row containerSvg66">
+            <button className="buttonSrc66">
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ const FeedPost = () => {
                 Photo
               </span>
             </button>
-            <button className="buttonSrc">
+            <button className="buttonSrc66">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -64,7 +64,7 @@ const FeedPost = () => {
                 Video
               </span>
             </button>
-            <button className="buttonSrc">
+            <button className="buttonSrc66">
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const FeedPost = () => {
                 Event
               </span>
             </button>
-            <button className="buttonSrc">
+            <button className="buttonSrc66">
               {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

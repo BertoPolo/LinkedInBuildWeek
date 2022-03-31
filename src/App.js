@@ -19,7 +19,7 @@ function App() {
             <Route path="/feed" element={<CreatePost />} />
           </Routes>
         </Container>
-        <MyFooter />
+        
       </BrowserRouter>
     </>
   );

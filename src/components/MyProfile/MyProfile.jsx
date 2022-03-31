@@ -7,6 +7,7 @@ import MyModal from "./MyModal";
 import SideBar from "../SideBar";
 import Experiences from "../Experiences";
 import { useParams } from "react-router-dom";
+import MyFooter from "../MyFooter";
 
 const MyProfile = () => {
   const [myProfile, setMyProfile] = useState(null);
@@ -158,6 +159,7 @@ const MyProfile = () => {
       <div className="col-4">
         <SideBar />
       </div>
+      <MyFooter />
     </div>
   ) : (
     <div>Loading</div>
