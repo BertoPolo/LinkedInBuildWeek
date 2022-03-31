@@ -6,33 +6,10 @@ import "../ModalPost/ModalPost.css"
 import ModalPost from "../ModalPost/ModalPost"
 
 const CreatePost = () => {
-  const [post, setPost] = useState({})
-  // const [openClose, setOpenClose] = useState(false)
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-
-  const PostingFunction = async (e) => {
-    try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
-      if (response.ok) {
-        alert("POSTED!!")
-      } else {
-        alert("we have a problem")
-      }
-    } catch (e) {
-      console.log(e)
-    }
-  }
 
   return (
     <>
@@ -116,7 +93,7 @@ const CreatePost = () => {
         </Row>
       </Container>
 
-      <ModalPost PostingFunction={PostingFunction} setPost={setPost} handleClose={handleClose} />
+      <ModalPost handleClose={handleClose} show={show} />
     </>
   )
 }
