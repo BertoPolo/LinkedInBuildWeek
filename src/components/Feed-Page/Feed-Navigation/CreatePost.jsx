@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css"
-import { Container, Row, Image } from "react-bootstrap"
 import "./CreatePost.css"
+import "./ModalPost.css"
+import ModalPost from "./ModalPost"
+import { Container, Row, Image } from "react-bootstrap"
 import { useState } from "react"
-import "../ModalPost/ModalPost.css"
-import ModalPost from "../ModalPost/ModalPost"
 
 const CreatePost = () => {
   const [show, setShow] = useState(false)
@@ -19,13 +19,7 @@ const CreatePost = () => {
             <Image src="" alt="" />
           </div>
           <div className="col-11">
-            <button
-              className="searchBar"
-              type="text"
-              placeholder="Start a post"
-              // onClick={() => (openClose ? setOpenClose(false) : setOpenClose(true))}
-              onClick={handleShow}
-            >
+            <button className="searchBar" type="text" placeholder="Start a post" onClick={handleShow}>
               <p id="placeholderS">Start a post</p>
             </button>
           </div>
