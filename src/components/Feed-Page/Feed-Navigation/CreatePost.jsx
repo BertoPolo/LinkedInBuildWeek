@@ -2,8 +2,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "./CreatePost.css"
 import "./ModalPost.css"
 import ModalPost from "./ModalPost"
+import { fetchMyProfile } from "../../MyProfile/fetchMyProfile"
 import { Container, Row, Image } from "react-bootstrap"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const CreatePost = () => {
   const [show, setShow] = useState(false)
@@ -11,12 +12,19 @@ const CreatePost = () => {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  const [myProfile, setMyProfile] = useState(null)
+
+  useEffect(() => {
+    setMyProfile(fetchMyProfile)
+  }, [])
+
   return (
     <>
       <Container className="feedBox">
         <Row className="rowFeedBox">
           <div className="col-1 profileImg">
             <Image src="" alt="" />
+            {/* {myProfile.image} */}
           </div>
           <div className="col-11">
             <button className="searchBar" type="text" placeholder="Start a post" onClick={handleShow}>

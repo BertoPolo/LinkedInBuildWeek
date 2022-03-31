@@ -1,10 +1,13 @@
 import CreatePost from "./CreatePost"
 import SingleFeedPost from "../Feed-Posts/SingleFeedPost"
-// import { Container } from "react-bootstrap"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const MainPost = () => {
-  const [posts, setPosts] = useState({})
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    getPosts()
+  }, [])
 
   const getPosts = async () => {
     try {
@@ -24,13 +27,10 @@ const MainPost = () => {
       console.log(e)
     }
   }
-
   return (
     <>
       <CreatePost />
-      {posts.map((post) => (
-        <SingleFeedPost post={post} />
-      ))}
+      {posts && posts.map((post) => <SingleFeedPost key={post._id} post={post} />).slice(0, 6)}
     </>
   )
 }

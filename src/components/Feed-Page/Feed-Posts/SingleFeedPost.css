@@ -13,7 +13,7 @@
 #profilePic {
   height: 48px;
   width: 48px;
-  border: 3px solid red;
+  /* border: 3px solid red; */
   border-radius: 50px;
 }
 
@@ -31,7 +31,7 @@
 }
 
 #mainImage {
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
   height: 100%;
   width: 100%;
 }

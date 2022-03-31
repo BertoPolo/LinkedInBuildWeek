@@ -2,7 +2,7 @@ import "./SingleFeedPost.css"
 import { Container } from "react-bootstrap"
 import "./SingleFeedPost.css"
 
-const SingleFeedPost = () => {
+const SingleFeedPost = ({ post }) => {
   return (
     <>
       <div className="hrContainer">
@@ -16,17 +16,18 @@ const SingleFeedPost = () => {
       <Container className="mainBox">
         <div id="mainContainer" className="row">
           <div className="firstContainer col-2">
-            <img id="profilePic" src="" alt="" />
+            <img id="profilePic" src={post.user.image} alt="" />
           </div>
+          {/* {post.user.image} */}
           <div className="firstContainer col-10">
-            <span className="nameFont">NAME</span>
+            <span className="nameFont">{post.username}</span>
             <span>TITLE</span>
             <span>Time</span>
           </div>
         </div>
-
-        <img id="mainImage" src="" alt="" />
-
+        <p>{post.text}</p>
+        <img id="mainImage" src={post.user.image} alt="" />
+        {/* {post.user.image} */}
         <div>
           <div className="row containerSvg">
             <button className="buttonSrc">
@@ -35,7 +36,7 @@ const SingleFeedPost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-hand-thumbs-up"
+                className="bi bi-hand-thumbs-up"
                 viewBox="0 0 16 16"
                 style={{ margin: "5px" }}
               >
@@ -50,7 +51,7 @@ const SingleFeedPost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-chat-right-text"
+                className="bi bi-chat-right-text"
                 viewBox="0 0 16 16"
                 style={{ margin: "5px" }}
               >
@@ -66,12 +67,12 @@ const SingleFeedPost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-arrow-90deg-right"
+                className="bi bi-arrow-90deg-right"
                 viewBox="0 0 16 16"
                 style={{ margin: "5px" }}
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z"
                 />
               </svg>
@@ -83,7 +84,7 @@ const SingleFeedPost = () => {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-send-fill"
+                className="bi bi-send-fill"
                 viewBox="0 0 16 16"
                 style={{ margin: "5px" }}
               >
