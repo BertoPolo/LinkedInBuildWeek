@@ -1,8 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./Feed-Posts.css"
+import "./SingleFeedPost.css"
 import { Container } from "react-bootstrap"
-import "../Feed-Page.css"
-const FeedPost = () => {
+import "./SingleFeedPost.css"
+
+const SingleFeedPost = () => {
   return (
     <>
       <div className="hrContainer">
@@ -98,4 +98,4 @@ const FeedPost = () => {
   )
 }
 
-export default FeedPost
+export default SingleFeedPost

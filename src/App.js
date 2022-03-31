@@ -1,12 +1,12 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import "./App.css";
-import { Container } from "react-bootstrap";
-import MyFooter from "./components/MyFooter";
-import MyNavbar from "./components/MyNavbar";
-import MyProfile from "./components/MyProfile/MyProfile";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CreatePost from "./components/Feed-Page/Feed-Navigation/CreatePost";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import "./App.css"
+import { Container } from "react-bootstrap"
+import MyFooter from "./components/MyFooter"
+import MyNavbar from "./components/MyNavbar"
+import MyProfile from "./components/MyProfile/MyProfile"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import MainPost from "./components/Feed-Page/Feed-Navigation/MainPost"
 
 function App() {
   return (
@@ -16,13 +16,13 @@ function App() {
         <Container>
           <Routes>
             <Route path="/:id" element={<MyProfile />} />
-            <Route path="/feed" element={<CreatePost />} />
+            <Route path="/feed" element={<MainPost />} />
           </Routes>
         </Container>
         <MyFooter />
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,6 +1,6 @@
 import CreatePost from "./CreatePost"
-import SinglePost from "./SinglePost"
-import { Container } from "react-bootstrap"
+import SingleFeedPost from "../Feed-Posts/SingleFeedPost"
+// import { Container } from "react-bootstrap"
 import { useState } from "react"
 
 const MainPost = () => {
@@ -25,7 +25,14 @@ const MainPost = () => {
     }
   }
 
-  return <>/* CreatePost,¿sending hooks? */ /* .map SinglePost sending SINGLE/EACH hooks */ </>
+  return (
+    <>
+      <CreatePost />
+      {posts.map((post) => (
+        <SingleFeedPost post={post} />
+      ))}
+    </>
+  )
 }
 
 export default MainPost
