@@ -4,8 +4,9 @@ import "./CreatePost.css";
 import { useState } from "react";
 import "../Modal/Modal.css";
 import ModalPost from "../Modal/Modal";
-import SideBarNews from "../Modal/Feed-Sidebars/Feed-SideBarNews";
-
+import SideBarNews from "../Feed-Sidebars/Feed-SideBarProfile";
+import SideBarHashtags from "../Feed-Sidebars/Feed-SideBarHashtags";
+import NewsBar from "../Feed-Sidebars/Feed-SideBarNews";
 const CreatePost = () => {
   const [post, setPost] = useState({});
   // const [openClose, setOpenClose] = useState(false)
@@ -134,6 +135,8 @@ const CreatePost = () => {
         handleClose={handleClose}
       />
       <SideBarNews />
+      <SideBarHashtags />
+      <NewsBar />
     </>
   );
 };

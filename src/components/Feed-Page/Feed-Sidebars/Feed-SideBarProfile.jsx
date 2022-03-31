@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../Feed-Sidebars/Feed-SideBarNews.css";
+import "../Feed-Sidebars/Feed-SideBarProfile.css";
 import { Row } from "react-bootstrap";
 
 const SideBarNews = () => {
