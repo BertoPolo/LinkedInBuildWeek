@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Container, Row, Image } from "react-bootstrap"
 import "./CreatePost.css"
 import { useState } from "react"
-import "../ModalPost/Modal.css"
+import "../ModalPost/ModalPost.css"
 import ModalPost from "../ModalPost/ModalPost"
 
 const CreatePost = () => {
