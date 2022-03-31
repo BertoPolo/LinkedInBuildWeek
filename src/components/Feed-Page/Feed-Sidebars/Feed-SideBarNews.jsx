@@ -14,7 +14,7 @@ const NewsBar = () => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-info-square-fill"
+              className="bi bi-info-square-fill"
               viewBox="0 0 16 16"
               style={{ margin: "5px" }}
             >
