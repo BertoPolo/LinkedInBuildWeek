@@ -1,7 +1,7 @@
 /* eslint-disable no-lone-blocks */
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container, Button, Modal } from "react-bootstrap"
-import "./Modal.css"
+import "./ModalPost.css"
 import { useState } from "react"
 
 const ModalPost = () => {
