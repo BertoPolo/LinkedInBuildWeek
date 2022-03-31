@@ -11,6 +11,7 @@
 
 #profileUserImage {
   width: 20vh;
+  height: 20vh;
   border-radius: 50%;
   border: 5px solid white;
   margin-top: -12vh;
