@@ -4,6 +4,7 @@ import "./CreatePost.css";
 import { useState } from "react";
 import "../Modal/Modal.css";
 import ModalPost from "../Modal/Modal";
+import SideBarNews from "../Modal/Feed-Sidebars/Feed-SideBarNews";
 
 const CreatePost = () => {
   const [post, setPost] = useState({});
@@ -132,6 +133,7 @@ const CreatePost = () => {
         setPost={setPost}
         handleClose={handleClose}
       />
+      <SideBarNews />
     </>
   );
 };
