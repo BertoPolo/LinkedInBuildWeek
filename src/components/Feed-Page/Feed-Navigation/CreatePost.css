@@ -62,3 +62,25 @@
   background-color: rgb(233, 235, 236) !important;
   border-radius: 5px;
 }
+
+.mainPageContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.mainPageContainer1 {
+  display: flex;
+  width: 1100px;
+}
+
+.thirdContainer {
+  margin-top: 25px;
+  margin-left: 20px;
+}
+.middleContainer {
+  margin-top: 25px;
+}
+.firstContainer {
+  margin-top: 25px;
+}

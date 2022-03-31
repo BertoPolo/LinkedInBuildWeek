@@ -5,6 +5,7 @@ import { Image, Button, Jumbotron } from "react-bootstrap";
 import MyModal from "../MyProfile/MyModal";
 import SideBar from "../SideBar";
 import Experiences from "../Experiences";
+import SideBarHashtags from "../Feed-Page/Feed-Sidebars/Feed-SideBarHashtags";
 
 const PeoplePage = () => {
   const [people, setPeople] = useState({});
@@ -169,6 +170,7 @@ const PeoplePage = () => {
       </div>
       <div className="col-4">
         <SideBar />
+        <SideBarHashtags />
       </div>
     </div>
   );
