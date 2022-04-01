@@ -1,21 +1,23 @@
 import "./SingleFeedPost.css"
+import ModalPost from "../Feed-Navigation/ModalPost"
 import { Container } from "react-bootstrap"
-import "./SingleFeedPost.css"
+import { useState } from "react"
 
 const SingleFeedPost = ({ post, id }) => {
+  const [show, setShow] = useState(false)
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
   return (
     <>
-      <div className="hrContainer">
-        <hr id="lineBreak"></hr>
-        <span id="sortBy">Sort by:</span>
-        <select id="buttonHr">
-          <option value="coconut">Top</option>
-          <option value="mango">Recent</option>
-        </select>
-      </div>
       <Container className="mainBox66">
         <div id="mainContainer66" className="row">
-          {id && <i className="bi bi-pencil hoverIconBgGray mx-2 "></i>}
+          {id === "62416e7ed339840015c883b6" && (
+            <div>
+              <i className="bi bi-pencil hoverIconBgGray mx-2 " onClick={handleShow}></i> <ModalPost handleClose={handleClose} show={show} id={id} />
+            </div>
+          )}
+          {/* this have to trigger the modal */}
+
           <div className="firstContainer66 col-2">
             <img id="profilePic66" src="" alt="" />
           </div>
@@ -31,7 +33,6 @@ const SingleFeedPost = ({ post, id }) => {
         <div>
           <div className="row containerSvg66">
             <button className="buttonSrc66">
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

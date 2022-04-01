@@ -9,7 +9,7 @@ import NewsBar from "../Feed-Sidebars/Feed-SideBarNews"
 import { useEffect, useState } from "react"
 import { fetchMyProfile } from "../../MyProfile/fetchMyProfile"
 
-const CreatePost = ({ id }) => {
+const CreatePost = ({ postID }) => {
   const [show, setShow] = useState(false)
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
@@ -98,10 +98,19 @@ const CreatePost = ({ id }) => {
                   <span style={{ margin: "5px", color: "rgb(109, 108, 108)" }}>Write article</span>
                 </button>
               </div>
+
+              <div className="hrContainer">
+                <hr id="lineBreak"></hr>
+                <span id="sortBy">Sort by:</span>
+                <select id="buttonHr">
+                  <option value="coconut">Top</option>
+                  <option value="mango">Recent</option>
+                </select>
+              </div>
             </Row>
           </Container>
 
-          <ModalPost handleClose={handleClose} show={show} id={id} />
+          <ModalPost handleClose={handleClose} show={show} postID={postID} />
         </div>
         <div className="thirdContainer">
           <NewsBar />
