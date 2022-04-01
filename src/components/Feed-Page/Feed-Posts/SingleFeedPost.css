@@ -10,7 +10,7 @@
   flex-direction: column;
   transform: translatey(-600px);
   margin-left: 205px;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 #profilePic66 {
@@ -22,8 +22,10 @@
 
 #mainContainer66 {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   width: 100%;
+  height: 100px;
 }
 .firstContainer66 {
   margin-top: 10px;
@@ -50,4 +52,10 @@
 }
 .buttonSrc66:hover {
   background-color: rgb(204, 204, 204);
+}
+
+.roundPic {
+  border-radius: 50px;
+  height: 52px;
+  width: 52px;
 }

@@ -1,17 +1,22 @@
-import { Navbar, Form, FormControl, Image } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { Navbar, Form, FormControl, Image } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const MyNavbar = () => {
   return (
     <Navbar bg="light" expand="lg" id="MyNavbar">
-      <div className="d-flex w-100">
+      <div id="mainNavBar" className="d-flex w-100">
         <div className="d-flex flex-row">
           <Navbar.Brand href="#home">
             <i className="bi bi-linkedin"></i>
           </Navbar.Brand>
           <Form inline>
             <i className="bi bi-search"></i>
-            <FormControl id="searchbar" type="text" placeholder="Search" className="mr-sm-2" />
+            <FormControl
+              id="searchbar"
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+            />
           </Form>
         </div>
 
@@ -71,6 +76,6 @@ const MyNavbar = () => {
         </div>
       </div>
     </Navbar>
-  )
-}
-export default MyNavbar
+  );
+};
+export default MyNavbar;
