@@ -3,19 +3,20 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Button, Modal } from "react-bootstrap"
 import "./ModalPost.css"
 import { useState } from "react"
+// import { useNavigate } from "react-router-dom"
 
 const ModalPost = ({ show, handleClose, postID }) => {
-  // const [methodToDO, setMethodToDo] = useState("")
   const [post, setPost] = useState({
     text: "",
   })
+  // const navigate = useNavigate()
 
-  const asyncFunction = async () => {
+  const asyncFunction = async (methodToDo) => {
     try {
       const response = await fetch(
         postID ? "https://striveschool-api.herokuapp.com/api/posts/" + postID : "https://striveschool-api.herokuapp.com/api/posts/",
         {
-          method: postID ? "PUT" : "POST",
+          method: methodToDo,
           body: JSON.stringify(post),
           headers: {
             "Content-Type": "application/json",
@@ -35,26 +36,6 @@ const ModalPost = ({ show, handleClose, postID }) => {
     }
   }
 
-  /* const editPostFunction = async () => {
-    try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + post._id, {
-        method: "PUT",
-        body: JSON.stringify(post),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
-      if (response.ok) {
-      } else {
-        alert("PROBLEM!")
-      }
-    } catch (e) {
-      console.log(e)
-    }
-  } */
-
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -67,11 +48,14 @@ const ModalPost = ({ show, handleClose, postID }) => {
         <Modal.Footer>
           {postID ? (
             <>
-              <Button variant="danger" onClick={(handleClose, asyncFunction)}>
+              <Button variant="danger" onClick={(handleClose, () => asyncFunction("DELETE"))}>
                 Delete
               </Button>
-              <Button variant="success" onClick={(handleClose, asyncFunction)}>
+              <Button variant="success" onClick={(handleClose, () => asyncFunction("PUT"))}>
                 Update
+              </Button>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
               </Button>
             </>
           ) : (
@@ -79,7 +63,7 @@ const ModalPost = ({ show, handleClose, postID }) => {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={(handleClose, asyncFunction)}>
+              <Button variant="primary" onClick={(handleClose, () => asyncFunction("POST"))}>
                 Post!
               </Button>
             </>
