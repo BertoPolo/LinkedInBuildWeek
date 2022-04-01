@@ -1,6 +1,5 @@
 import "./SingleFeedPost.css"
 import { Container } from "react-bootstrap"
-import "./SingleFeedPost.css"
 
 const SingleFeedPost = ({ post, id }) => {
   return (
@@ -17,12 +16,12 @@ const SingleFeedPost = ({ post, id }) => {
         <div id="mainContainer66" className="row">
           {id && <i className="bi bi-pencil hoverIconBgGray mx-2 "></i>}
           <div className="firstContainer66 col-2">
-            <img id="profilePic66" src="" alt="" />
+            <img id="profilePic" src={post.user.image} alt="" />
           </div>
           <div className="firstContainer66 col-10">
-            <span className="nameFont">NAME</span>
-            <span>TITLE</span>
-            <span>Time</span>
+            <p className="m-1 nameFont">{post.username}</p>
+            <p className="m-1">{post.user.title}</p>
+            <p className="m-1">{post.createdAt}</p>
           </div>
         </div>
         <p>{post.text}</p>
@@ -31,7 +30,6 @@ const SingleFeedPost = ({ post, id }) => {
         <div>
           <div className="row containerSvg66">
             <button className="buttonSrc66">
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
