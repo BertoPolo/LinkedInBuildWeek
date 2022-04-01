@@ -19,12 +19,12 @@ const SingleFeedPost = ({ post, id }) => {
           {/* this have to trigger the modal */}
 
           <div className="firstContainer66 col-2">
-            <img id="profilePic66" src="" alt="" />
+            <img id="profilePic" src={post.user.image} alt="" />
           </div>
           <div className="firstContainer66 col-10">
-            <span className="nameFont">NAME</span>
-            <span>TITLE</span>
-            <span>Time</span>
+            <p className="m-1 nameFont">{post.username}</p>
+            <p className="m-1">{post.user.title}</p>
+            <p className="m-1">{post.createdAt}</p>
           </div>
         </div>
         <p>{post.text}</p>
