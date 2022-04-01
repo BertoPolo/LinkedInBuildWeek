@@ -127,10 +127,19 @@ footer {
 .hoverIconBgGray:hover {
   background-color: rgba(128, 128, 128, 0.363);
   border-radius: 50%;
-  padding: 10px;
+  height: 10%;
+  width: 10%;
   cursor: pointer;
 }
 /* Animations end*/
+
+.cameraProfileIcon:hover {
+  background-color: rgba(128, 128, 128, 0.363);
+  border-radius: 50%;
+  height: 10%;
+  width: 10%;
+  cursor: pointer;
+}
 
 .sideBarBox {
   border: solid 1px rgb(224, 220, 220);

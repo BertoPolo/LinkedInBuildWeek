@@ -1,0 +1,23 @@
+#lineBreak{
+    display: flex;
+    width: 475px;
+    display: inline-block;
+    transform: translateX(20%);
+}
+.hrContainer{
+    width: 575px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    
+}
+
+#buttonHr{
+    background-color: white;
+    border: none;
+    width: 50px;
+}
+#sortBy{
+    font-size: 12px;
+}

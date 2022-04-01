@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ExperienceModal from "./ExperienceModal";
 import SingleExperience from "./SingleExperience";
 
-const Experiences = ({ id }) => {
+const Experiences = ({ id, fetchData }) => {
   const [experiences, setExperiences] = useState([]);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -44,7 +44,7 @@ const Experiences = ({ id }) => {
           }}
         >
           <div style={{ marginLeft: "3vh" }}>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between mt-3">
               <h4>Experience</h4>
               {id === "62416e7ed339840015c883b6" && (
                 <div className="">
@@ -64,6 +64,7 @@ const Experiences = ({ id }) => {
             </div>
             {experiences.map((experience) => (
               <SingleExperience
+                key={experience._id}
                 id={id}
                 experience={experience}
                 fetchExperiences={fetchExperiences}

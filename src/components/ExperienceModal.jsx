@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import { Form, Modal, Button, Container, Row, Col } from "react-bootstrap";
 
@@ -7,6 +8,7 @@ const ExperienceModal = ({
   handleClose,
   userId,
   fetchExperiences,
+  fetchData,
   ...rest
 }) => {
   const [experience, setExperience] = useState(
@@ -22,7 +24,37 @@ const ExperienceModal = ({
           image: "",
         }
   );
-  console.log({ fetchExperiences });
+  const [imgFile, setImgFile] = useState(null);
+  const handleFile = (e) => {
+    setImgFile(e.target.files[0]);
+  };
+  function handleUpdate() {
+    let img = imgFile;
+
+    let formDataExp = new FormData();
+
+    formDataExp.append("experience", img);
+    formDataExp.append("name", userId);
+
+    axios({
+      url: `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${rest.experience._id}/picture`,
+      method: "POST",
+      headers: {
+        authorization:
+          "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+      },
+      data: formDataExp,
+    }).then(
+      (data) => {
+        fetchExperiences(userId);
+        handleClose();
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
   const submitExperiences = async () => {
     try {
       let response = await fetch(
@@ -64,6 +96,7 @@ const ExperienceModal = ({
       );
       if (response.ok) {
         await fetchExperiences(userId);
+        handleUpdate();
         handleClose();
       } else {
         alert("PROBLEM with the");
@@ -97,7 +130,7 @@ const ExperienceModal = ({
       console.log(e);
     }
   };
-
+  console.log("rest is", rest);
   return (
     <>
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -159,7 +192,6 @@ const ExperienceModal = ({
                     <Form.Control
                       type="date"
                       value={experience.startDate}
-                      required
                       onChange={(e) =>
                         setExperience({
                           ...experience,
@@ -173,7 +205,6 @@ const ExperienceModal = ({
                     <Form.Control
                       type="date"
                       value={experience.endDate}
-                      required
                       onChange={(e) =>
                         setExperience({
                           ...experience,
@@ -183,18 +214,12 @@ const ExperienceModal = ({
                     />
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Image</Form.Label>
-                    <Form.Control
-                      type="text"
-                      placeholder="img url..."
-                      value={experience.image}
+                    <p>Choose an Image</p>
+                    <input
+                      type="file"
+                      name="expImg"
                       required
-                      onChange={(e) =>
-                        setExperience({
-                          ...experience,
-                          image: e.target.value,
-                        })
-                      }
+                      onChange={(e) => handleFile(e)}
                     />
                   </Form.Group>
                   <Form.Group>

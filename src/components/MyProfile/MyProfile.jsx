@@ -7,13 +7,17 @@ import MyModal from "./MyModal";
 import SideBar from "../SideBar";
 import Experiences from "../Experiences";
 import { useParams } from "react-router-dom";
+import MyProfilePictureModal from "./MyProfilePictureModal";
 
 const MyProfile = () => {
   const [myProfile, setMyProfile] = useState(null);
   const [show, setShow] = useState(false);
+  const [showMyPictureModal, setShowMyPictureModal] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClosePicture = () => setShowMyPictureModal(false);
+  const handleShowPicture = () => setShowMyPictureModal(true);
   const { id } = useParams();
   const fetchData = async (param) => {
     try {
@@ -60,11 +64,32 @@ const MyProfile = () => {
               </div>
               <div id="profileInfosContainer">
                 <div className="d-flex justify-content-between align-items-end">
-                  <Image
-                    alt="profileUserImage"
-                    id="profileUserImage"
-                    src={myProfile.image}
-                  />
+                  <div>
+                    <Image
+                      alt="profileUserImage"
+                      id="profileUserImage"
+                      src={myProfile.image}
+                    />
+                    {id === "me" && (
+                      <>
+                        <i
+                          className="bi bi-camera cameraProfileIcon"
+                          onClick={handleShowPicture}
+                        ></i>
+                        {showMyPictureModal ? (
+                          <MyProfilePictureModal
+                            show={showMyPictureModal}
+                            id={myProfile._id}
+                            handleClosePicture={handleClosePicture}
+                            myProfile={myProfile}
+                            fetchData={fetchData}
+                          />
+                        ) : (
+                          <></>
+                        )}
+                      </>
+                    )}
+                  </div>
                   {id === "me" && (
                     <div className="mr-3 modifyIcon">
                       <i className="bi bi-pencil" onClick={handleShow}></i>
@@ -151,7 +176,7 @@ const MyProfile = () => {
                 <p>{myProfile.bio}</p>
               </div>
             </div>
-            {myProfile && <Experiences id={myProfile._id} />}
+            <Experiences fetchData={fetchData} id={myProfile._id} />
           </>
         }
       </div>

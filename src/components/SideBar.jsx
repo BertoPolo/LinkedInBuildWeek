@@ -9,7 +9,7 @@ const SideBar = () => {
 
   return (
     <>
-      <div style={{ height: heightButton }} className="sideBarBox">
+      <div style={{ height: heightButton }} className="sideBarBox ">
         <Section />
       </div>
       <Button
