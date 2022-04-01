@@ -65,12 +65,14 @@ const ModalPost = ({ show, handleClose, postID }) => {
         </Modal.Body>
         <Modal.Footer>
           {postID ? (
-            // <Button variant="danger" onClick={(handleClose, postingFunction)}>
-            //   Delete
-            // </Button>
-            <Button variant="success" onClick={(handleClose, postingFunction)}>
-              Update
-            </Button>
+            <>
+              <Button variant="danger" onClick={(handleClose, postingFunction)}>
+                Delete
+              </Button>
+              <Button variant="success" onClick={(handleClose, postingFunction)}>
+                Update
+              </Button>
+            </>
           ) : (
             <>
               <Button variant="secondary" onClick={handleClose}>
