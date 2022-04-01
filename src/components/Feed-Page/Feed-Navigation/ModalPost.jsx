@@ -4,12 +4,10 @@ import { Button, Modal } from "react-bootstrap"
 import "./ModalPost.css"
 import { useState } from "react"
 
-const ModalPost = ({ show, handleClose }) => {
+const ModalPost = ({ show, handleClose, postID }) => {
   const [post, setPost] = useState({
     text: "",
   })
-
-  const postID = post._id
 
   const postingFunction = async () => {
     try {
@@ -63,15 +61,26 @@ const ModalPost = ({ show, handleClose }) => {
           <Modal.Title>Create a post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <textarea type="textarea" name="" id="inputBox44" onChange={(e) => setPost({ text: e.target.value })} />
+          <textarea type="textarea" name="" id="inputBox44" onChange={(e) => setPost({ text: e.target.value })} value={post.text} />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={(handleClose, postingFunction)}>
-            Post!
-          </Button>
+          {postID ? (
+            // <Button variant="danger" onClick={(handleClose, postingFunction)}>
+            //   Delete
+            // </Button>
+            <Button variant="success" onClick={(handleClose, postingFunction)}>
+              Update
+            </Button>
+          ) : (
+            <>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={(handleClose, postingFunction)}>
+                Post!
+              </Button>
+            </>
+          )}
         </Modal.Footer>
       </Modal>
     </>
