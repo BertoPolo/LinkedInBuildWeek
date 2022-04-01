@@ -1,5 +1,5 @@
-import { Navbar, Form, FormControl, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Form, FormControl, Image } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const MyNavbar = () => {
   return (
@@ -10,20 +10,18 @@ const MyNavbar = () => {
         </Navbar.Brand>
         <Form inline>
           <i className="bi bi-search"></i>
-          <FormControl
-            id="searchbar"
-            type="text"
-            placeholder="Search"
-            className="mr-sm-2"
-          />
+          <FormControl id="searchbar" type="text" placeholder="Search" className="mr-sm-2" />
         </Form>
       </div>
       <div className="navSecondPart">
         {/* <div className="d-inline-block"> */}
         <div className="mr-4 ">
           <i className="bi bi-house-door-fill d-block"></i>
-          <span className="text-muted">Home</span>
-          {/* <Link className="text-muted" to="/">Home</Link> */}
+          {
+            <Link className="text-muted" to="/feed">
+              Home
+            </Link>
+          }
         </div>
         <div className="mr-4">
           <i className="bi bi-people-fill d-block "></i>
@@ -52,9 +50,9 @@ const MyNavbar = () => {
             roundedCircle
             src="https://4.bp.blogspot.com/-JhuMSe_N8kM/TlECIiHEq6I/AAAAAAAAUao/LwzE1ux2oSg/s320/patodonaldparaimprimir4.gif"
           />
-          <span className="d-block">
+          <Link to="/me" className="d-block">
             Me <i className="bi bi-caret-down-fill "></i>
-          </span>
+          </Link>
         </div>
 
         <div className="text-muted">
@@ -70,6 +68,6 @@ const MyNavbar = () => {
         {/* </div> */}
       </div>
     </Navbar>
-  );
-};
-export default MyNavbar;
+  )
+}
+export default MyNavbar
