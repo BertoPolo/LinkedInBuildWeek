@@ -1,97 +1,97 @@
-#mainContainer{
-    height: 372px;
-    width: 180px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    border: 1px solid grey;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+#mainContainer {
+  height: 372px;
+  width: 180px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 15px;
 }
-.imgBox33{
-    height: 50px;
-}
-
-#backgroundImg{
-    background-color: rgb(49, 90, 90);
-    width: 100%;
-    height: 56px;
-}
-.secondBox{
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.imgBox33 {
+  height: 50px;
 }
 
-.profileImg33{
-
-background-color: rgb(151, 100, 100);
-height: 70px;
-width: 70px;
-border-radius: 50px;
-margin-left: 55px;
-border: 1px solid rgb(255, 255, 255);
-z-index: 1;
-transform: translateY(-33px);
+#backgroundImg {
+  background-color: rgb(49, 90, 90);
+  width: 100%;
+  height: 56px;
 }
-.smallText{
-    font-size: 11px;
-    color: grey;
-}
-#r53div{
-    display: flex;
-    justify-content: flex-end;
-}
-.name33{
-font-weight: 600;
-margin: 0;
-}
-.title33{
-font-size: small;
-margin: 0;
-}
-.linebreak{
-    height: 1px;
-    width: 100%;
-    color: grey;
-    margin: 5px;
-}
-.thirdBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.innerthirdbox{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.network{
-    font-size: 10px;
-    font-weight: 600;
-}
-.network2{
-    font-size: 10px;
-    font-weight: 700;}
-.network3{
-    font-size: 10px;
-    font-weight: 700;
-}
-.network2:hover{
-    background-color: rgb(230, 230, 230);
-    color: rgb(109, 109, 255);
+.secondBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#svgScale{
-    scale: 70%;
-    color: orange;
+.profileImg33 {
+  background-color: rgb(151, 100, 100);
+  height: 70px;
+  width: 70px;
+  border-radius: 50px;
+  margin-left: 55px;
+  border: 1px solid rgb(255, 255, 255);
+  z-index: 1;
+  transform: translateY(-33px);
+}
+.smallText {
+  font-size: 11px;
+  color: grey;
+}
+#r53div {
+  display: flex;
+  justify-content: flex-end;
+}
+.name33 {
+  font-weight: 600;
+  margin: 0;
+}
+.title33 {
+  font-size: small;
+  margin: 0;
+}
+.linebreak {
+  height: 1px;
+  width: 100%;
+  color: grey;
+  margin: 5px;
+}
+.thirdBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.innerthirdbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.network {
+  font-size: 10px;
+  font-weight: 600;
+}
+.network2 {
+  font-size: 10px;
+  font-weight: 700;
+}
+.network3 {
+  font-size: 10px;
+  font-weight: 700;
+}
+.network2:hover {
+  background-color: rgb(230, 230, 230);
+  color: rgb(109, 109, 255);
 }
 
-.hoverDiv:hover{
-    background-color: rgb(221, 221, 221);
-    scale: 95%;
+#svgScale {
+  scale: 70%;
+  color: orange;
+}
+
+.hoverDiv:hover {
+  background-color: rgb(221, 221, 221);
+  scale: 95%;
 }
