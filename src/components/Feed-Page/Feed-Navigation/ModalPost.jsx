@@ -9,18 +9,23 @@ const ModalPost = ({ show, handleClose }) => {
     text: "",
   })
 
- 
+  const postID = post._id
+
   const postingFunction = async () => {
     try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + DO IT WITH TERNARY, {
-        method: "POST",
-        body: JSON.stringify(post),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
-        },
-      })
+      const response = await fetch(
+        postID ? "https://striveschool-api.herokuapp.com/api/posts/" + postID : "https://striveschool-api.herokuapp.com/api/posts/",
+        {
+          method: postID ? "PUT" : "POST",
+          body: JSON.stringify(post),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+          },
+        }
+      )
+
       if (response.ok) {
         alert("POSTED!!")
       } else {
