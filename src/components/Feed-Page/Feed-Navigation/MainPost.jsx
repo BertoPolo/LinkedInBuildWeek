@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 
 const MainPost = () => {
   const [posts, setPosts] = useState([])
-  const [profile, setMyProfile] = useState(null)
+  const [profile, setProfile] = useState(null)
 
   useEffect(() => {
     getPosts()
@@ -21,8 +21,7 @@ const MainPost = () => {
       })
       if (response.ok) {
         const data = await response.json()
-        setMyProfile(data)
-        console.log(profile)
+        setProfile(data)
       }
     } catch (error) {
       console.log(error)
@@ -53,7 +52,7 @@ const MainPost = () => {
       <CreatePost /> // pass a prop with _id
       {posts &&
         posts
-          .map((post) => <SingleFeedPost key={post._id} post={post} />) // here  must pass a prop when its YOUR post and allow edit the post
+          .map((post) => <SingleFeedPost key={post._id} post={post} id={profile._id} />) // here  must pass a prop when its YOUR post and allow edit the post
           .slice(0, 6)}
     </>
   )

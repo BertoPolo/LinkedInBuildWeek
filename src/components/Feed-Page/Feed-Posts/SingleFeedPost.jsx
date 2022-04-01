@@ -2,7 +2,7 @@ import "./SingleFeedPost.css"
 import { Container } from "react-bootstrap"
 import "./SingleFeedPost.css"
 
-const SingleFeedPost = ({ post, editMode }) => {
+const SingleFeedPost = ({ post, id }) => {
   return (
     <>
       <div className="hrContainer">
@@ -15,7 +15,7 @@ const SingleFeedPost = ({ post, editMode }) => {
       </div>
       <Container className="mainBox66">
         <div id="mainContainer66" className="row">
-          {editMode && <i className="bi bi-pencil hoverIconBgGray mx-2 "></i>}
+          {id && <i className="bi bi-pencil hoverIconBgGray mx-2 "></i>}
           <div className="firstContainer66 col-2">
             <img id="profilePic66" src="" alt="" />
           </div>

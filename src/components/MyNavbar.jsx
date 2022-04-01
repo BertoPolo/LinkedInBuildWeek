@@ -1,5 +1,5 @@
-import { Navbar, Form, FormControl, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Navbar, Form, FormControl, Image } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 const MyNavbar = () => {
   return (
@@ -11,12 +11,7 @@ const MyNavbar = () => {
           </Navbar.Brand>
           <Form inline>
             <i className="bi bi-search"></i>
-            <FormControl
-              id="searchbar"
-              type="text"
-              placeholder="Search"
-              className="mr-sm-2"
-            />
+            <FormControl id="searchbar" type="text" placeholder="Search" className="mr-sm-2" />
           </Form>
         </div>
 
@@ -76,6 +71,6 @@ const MyNavbar = () => {
         </div>
       </div>
     </Navbar>
-  );
-};
-export default MyNavbar;
+  )
+}
+export default MyNavbar

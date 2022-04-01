@@ -9,10 +9,10 @@ const ModalPost = ({ show, handleClose }) => {
     text: "",
   })
 
+ 
   const postingFunction = async () => {
     try {
-      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/", {
-        //id && + id
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + DO IT WITH TERNARY, {
         method: "POST",
         body: JSON.stringify(post),
         headers: {
@@ -33,7 +33,7 @@ const ModalPost = ({ show, handleClose }) => {
 
   const editPostFunction = async () => {
     try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" /* + postId */, {
+      let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + post._id, {
         method: "PUT",
         body: JSON.stringify(post),
         headers: {
