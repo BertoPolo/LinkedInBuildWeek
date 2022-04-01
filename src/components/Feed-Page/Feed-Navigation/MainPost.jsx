@@ -46,10 +46,9 @@ const MainPost = () => {
       console.log(e)
     }
   }
-  console.log(posts)
   return (
     <>
-      <CreatePost /> // pass a prop with _id
+      <CreatePost />
       {posts &&
         posts
           .map((post) => <SingleFeedPost key={post._id} post={post} id={profile._id} />) // here  must pass a prop when its YOUR post and allow edit the post
