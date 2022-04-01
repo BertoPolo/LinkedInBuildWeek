@@ -5,11 +5,12 @@ import "./ModalPost.css"
 import { useState } from "react"
 
 const ModalPost = ({ show, handleClose, postID }) => {
+  // const [methodToDO, setMethodToDo] = useState("")
   const [post, setPost] = useState({
     text: "",
   })
 
-  const postingFunction = async () => {
+  const asyncFunction = async () => {
     try {
       const response = await fetch(
         postID ? "https://striveschool-api.herokuapp.com/api/posts/" + postID : "https://striveschool-api.herokuapp.com/api/posts/",
@@ -66,10 +67,10 @@ const ModalPost = ({ show, handleClose, postID }) => {
         <Modal.Footer>
           {postID ? (
             <>
-              <Button variant="danger" onClick={(handleClose, postingFunction)}>
+              <Button variant="danger" onClick={(handleClose, asyncFunction)}>
                 Delete
               </Button>
-              <Button variant="success" onClick={(handleClose, postingFunction)}>
+              <Button variant="success" onClick={(handleClose, asyncFunction)}>
                 Update
               </Button>
             </>
@@ -78,7 +79,7 @@ const ModalPost = ({ show, handleClose, postID }) => {
               <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={(handleClose, postingFunction)}>
+              <Button variant="primary" onClick={(handleClose, asyncFunction)}>
                 Post!
               </Button>
             </>
