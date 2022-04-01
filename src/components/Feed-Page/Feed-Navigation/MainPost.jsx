@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 const MainPost = () => {
   const [posts, setPosts] = useState([])
 
+  /* do a fetch GET of MY PROFILE */
+
   useEffect(() => {
     getPosts()
   }, [])
@@ -30,7 +32,7 @@ const MainPost = () => {
   console.log(posts)
   return (
     <>
-      <CreatePost />
+      <CreatePost /> // pass a prop with _id
       {posts &&
         posts
           .map((post) => <SingleFeedPost key={post._id} post={post} />) // here  must pass a prop when its YOUR post and allow edit the post

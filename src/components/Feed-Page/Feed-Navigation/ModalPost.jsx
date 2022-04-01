@@ -33,7 +33,7 @@ const ModalPost = ({ show, handleClose }) => {
 
   const editPostFunction = async () => {
     try {
-      let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + postId, {
+      let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" /* + postId */, {
         method: "PUT",
         body: JSON.stringify(post),
         headers: {
@@ -44,7 +44,7 @@ const ModalPost = ({ show, handleClose }) => {
       })
       if (response.ok) {
       } else {
-        alert("PROBLEM with the")
+        alert("PROBLEM!")
       }
     } catch (e) {
       console.log(e)
