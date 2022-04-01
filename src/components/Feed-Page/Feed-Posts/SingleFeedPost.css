@@ -8,6 +8,9 @@
   border-radius: 5px;
   border: 1px solid rgb(194, 194, 194);
   flex-direction: column;
+  transform: translatey(-600px);
+  margin-left: 205px;
+  margin-top: 15px;
 }
 
 #profilePic66 {
@@ -31,9 +34,10 @@
 }
 
 #mainImage66 {
-  background-color: rebeccapurple;
+  background-color: rgb(255, 255, 255);
   height: 100%;
   width: 100%;
+  object-fit: contain;
 }
 .containerSvg66 {
   display: flex;
@@ -46,8 +50,4 @@
 }
 .buttonSrc66:hover {
   background-color: rgb(204, 204, 204);
-}
-
-.hrContainer {
-  width: 200px;
 }

@@ -112,7 +112,7 @@ const CreatePost = () => {
                 </button>
               </div>
               <div className="hrContainer">
-                <hr id="lineBreak"></hr>
+                <div id="lineBreak2"></div>
                 <span id="sortBy">Sort by:</span>
                 <select id="buttonHr">
                   <option value="coconut">Top</option>
