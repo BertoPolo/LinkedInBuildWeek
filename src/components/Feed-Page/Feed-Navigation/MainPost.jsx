@@ -4,12 +4,30 @@ import { useEffect, useState } from "react"
 
 const MainPost = () => {
   const [posts, setPosts] = useState([])
-
-  /* do a fetch GET of MY PROFILE */
+  const [profile, setMyProfile] = useState(null)
 
   useEffect(() => {
     getPosts()
+    fetchData()
   }, [])
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjQxNmU3ZWQzMzk4NDAwMTVjODgzYjYiLCJpYXQiOjE2NDg0NTUyOTgsImV4cCI6MTY0OTY2NDg5OH0.VLQs1aPcryvd-GdlD9l8Fl80QZPNQHjrbWcVQpEBvCA",
+        },
+      })
+      if (response.ok) {
+        const data = await response.json()
+        setMyProfile(data)
+        console.log(profile)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const getPosts = async () => {
     try {
