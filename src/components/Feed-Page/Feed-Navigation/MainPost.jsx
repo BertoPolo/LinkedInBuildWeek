@@ -49,7 +49,10 @@ const MainPost = () => {
   return (
     <>
       <CreatePost />
-      {posts && posts.map((post) => <SingleFeedPost key={post._id} post={post} id={profile._id} />).slice(0, 6)}
+      {posts &&
+        posts
+          .map((post) => <SingleFeedPost key={post._id} post={post} id={profile._id} />) // here  must pass a prop when its YOUR post and allow edit the post
+          .slice(0, 6)}
     </>
   )
 }

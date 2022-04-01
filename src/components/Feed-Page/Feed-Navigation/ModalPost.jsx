@@ -36,7 +36,7 @@ const ModalPost = ({ show, handleClose }) => {
     }
   }
 
-  const editPostFunction = async () => {
+  /* const editPostFunction = async () => {
     try {
       let response = await fetch("https://striveschool-api.herokuapp.com/api/posts/" + post._id, {
         method: "PUT",
@@ -54,7 +54,7 @@ const ModalPost = ({ show, handleClose }) => {
     } catch (e) {
       console.log(e)
     }
-  }
+  } */
 
   return (
     <>
