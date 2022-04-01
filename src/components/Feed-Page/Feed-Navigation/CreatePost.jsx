@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import { Container, Row, Image } from "react-bootstrap"
 import "./CreatePost.css"
-
 import "./ModalPost.css"
 import ModalPost from "./ModalPost"
 import SideBarNews from "../Feed-Sidebars/Feed-SideBarProfile"
