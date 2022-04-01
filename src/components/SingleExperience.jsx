@@ -1,6 +1,7 @@
 import { Image } from "react-bootstrap";
 import ExperienceModal from "./ExperienceModal";
 import { useState } from "react";
+import { parseISO, format } from "date-fns";
 
 const SingleExperience = ({ experience, fetchExperiences, id }) => {
   const [show, setShow] = useState(false);
@@ -25,12 +26,14 @@ const SingleExperience = ({ experience, fetchExperiences, id }) => {
         </>
       )}
       <Image className="jobImg" src={experience.image} />
-      <div>
+      <div className="ml-3">
         <h6 className="my-0">{experience.role}</h6>
         <></>
         <p className="my-0 ml-0">{experience.company}</p>
         <p className="text-muted ml-0">
-          {experience.startDate} · {experience.endDate}
+          {format(parseISO(experience.startDate), " do MMMM yyyy")} ·{" "}
+          {experience.endDate &&
+            format(parseISO(experience.endDate), "do MMMM  yyyy")}
         </p>
         <p className="text-muted ml-0">{experience.area}</p>
       </div>

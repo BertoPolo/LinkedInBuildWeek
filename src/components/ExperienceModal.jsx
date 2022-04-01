@@ -130,7 +130,7 @@ const ExperienceModal = ({
       console.log(e);
     }
   };
-
+  console.log("rest is", rest);
   return (
     <>
       <Modal show={show} onHide={handleClose} animation={false}>

@@ -27,7 +27,7 @@ const Section = () => {
   }
 
   return (
-    <>
+    <div className="">
       <h5 className="titleSideBar">People you might know</h5>
       {users.slice(0, 6).map((user) => (
         <div key={user._id}>
@@ -46,7 +46,7 @@ const Section = () => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
